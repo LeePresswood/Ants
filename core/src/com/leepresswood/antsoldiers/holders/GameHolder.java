@@ -5,6 +5,7 @@ import com.badlogic.gdx.math.Vector2;
 
 public class GameHolder
 {
+	private SpriteBatch batch;
 
 	public GameHolder(Vector2 origin_point, Vector2 screen_size)
 	{
@@ -14,7 +15,7 @@ public class GameHolder
 	{
 	}
 
-	public void render(SpriteBatch batch)
+	public void render()
 	{
 	}
 

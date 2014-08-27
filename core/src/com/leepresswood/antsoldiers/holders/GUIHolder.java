@@ -5,6 +5,7 @@ import com.badlogic.gdx.math.Vector2;
 
 public class GUIHolder
 {
+	private SpriteBatch batch;
 
 	public GUIHolder(Vector2 origin_point, Vector2 screen_size)
 	{
@@ -14,7 +15,7 @@ public class GUIHolder
 	{
 	}
 
-	public void render(SpriteBatch batch)
+	public void render()
 	{
 	}
 
