@@ -7,7 +7,7 @@ public class GUIHolder
 {
 	private SpriteBatch batch;
 
-	public GUIHolder(Vector2 origin_point, Vector2 screen_size)
+	public GUIHolder(Vector2 origin_point, Vector2 holder_size)
 	{
 	}
 
@@ -18,5 +18,4 @@ public class GUIHolder
 	public void render()
 	{
 	}
-
 }

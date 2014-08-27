@@ -7,7 +7,7 @@ public class GameHolder
 {
 	private SpriteBatch batch;
 
-	public GameHolder(Vector2 origin_point, Vector2 screen_size)
+	public GameHolder(Vector2 origin_point, Vector2 holder_size)
 	{
 	}
 
@@ -18,5 +18,4 @@ public class GameHolder
 	public void render()
 	{
 	}
-
 }

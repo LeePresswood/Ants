@@ -12,10 +12,10 @@ public class ScreenGame extends ScreenAdapter
 {
 	private Vector2 origin_point;
 	private Vector2 screen_size;
+	private final float GUI_PERCENT = 0.2f;
+	
 	private GUIHolder gui_holder;
 	private GameHolder game_holder;
-	
-	private final float GUI_PERCENT = 0.2f;
 	
 	public ScreenGame(ScreenHolder screen_holder)
 	{
