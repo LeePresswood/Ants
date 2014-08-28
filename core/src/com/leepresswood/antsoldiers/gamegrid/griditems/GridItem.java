@@ -2,6 +2,6 @@
 package com.leepresswood.antsoldiers.gamegrid.griditems;
 
 public class GridItem
-{
-
+{	
+	
 }
