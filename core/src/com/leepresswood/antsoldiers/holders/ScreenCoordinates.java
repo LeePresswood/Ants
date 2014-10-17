@@ -3,7 +3,7 @@ package com.leepresswood.antsoldiers.holders;
 
 import com.badlogic.gdx.Gdx;
 
-public class ScreenHolder
+public class ScreenCoordinates
 {
 	//Go for a 16:9 aspect ratio.
 	private float aspect_ratio = 16f / 9f;
@@ -14,7 +14,7 @@ public class ScreenHolder
 	public float width;
 	public float height;
 	
-	public ScreenHolder()
+	public ScreenCoordinates()
 	{
 		//Use the height of the device to find the width.
 		height = Gdx.graphics.getHeight();

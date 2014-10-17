@@ -1,7 +1,7 @@
 package com.leepresswood.antsoldiers;
 
 import com.badlogic.gdx.Game;
-import com.leepresswood.antsoldiers.holders.ScreenHolder;
+import com.leepresswood.antsoldiers.holders.ScreenCoordinates;
 import com.leepresswood.antsoldiers.screens.ScreenGame;
 
 public class GameAntSoldiers extends Game
@@ -9,8 +9,7 @@ public class GameAntSoldiers extends Game
 	@Override
 	public void create()
 	{
-		TexturePack
-		this.setScreen(new ScreenGame(new ScreenHolder()));
+		this.setScreen(new ScreenGame(new ScreenCoordinates()));
 	}	
 	
 	@Override
