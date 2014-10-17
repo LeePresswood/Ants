@@ -9,6 +9,7 @@ public class GameAntSoldiers extends Game
 	@Override
 	public void create()
 	{
+		TexturePack
 		this.setScreen(new ScreenGame(new ScreenHolder()));
 	}	
 	
