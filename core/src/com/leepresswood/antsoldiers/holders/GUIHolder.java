@@ -25,4 +25,10 @@ public class GUIHolder extends Holder
 	{
 		
 	}
+
+	@Override
+	public void dispose()
+	{
+		
+	}
 }

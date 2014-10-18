@@ -25,4 +25,5 @@ public abstract class Holder
 	
 	public abstract void update(float delta);
 	public abstract void render();
+	public abstract void dispose();
 }
