@@ -1,7 +1,5 @@
 package com.leepresswood.antsoldiers.holders;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector2;
@@ -9,7 +7,7 @@ import com.badlogic.gdx.math.Vector2;
 public class GUIHolder extends Holder
 {
 	private TextureAtlas atlas, game_atlas;
-	private Sprite[] tile_sprites;
+	private Sprite[] block_sprites;
 
 	
 	public GUIHolder(Vector2 origin_point, Vector2 holder_size)
@@ -19,17 +17,18 @@ public class GUIHolder extends Holder
 		//Grab all the GUI textures
 		//TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("atlases/gui.atlas"));
 		
-		//The tiles will also be used, so load those, too.
-		game_atlas = new TextureAtlas(Gdx.files.internal("atlases/game.pack"));
-		tile_sprites = new Sprite[7];
+		//The blocks will also be used as a "store", so load those, too.
+		float x = 0f;
+		float y = 0f;
+		float size = 50f;
+		block_sprites = new Sprite[NUMBER_OF_BLOCK_TYPES];	
+		for(int i = 0; i < NUMBER_OF_BLOCK_TYPES; i++)
+		{
+			block_sprites[i] = new Sprite(block_textures[i]);
+			block_sprites[i].setBounds(x, y, size, size);
+			x += size;
+		}
 		
-		tile_sprites[0] = atlas.createSprite("ground_solid");
-		tile_sprites[1] = atlas.createSprite("ground_sloped_right");
-		tile_sprites[2] = atlas.createSprite("ground_sloped_left");
-		tile_sprites[3] = atlas.createSprite("ceiling_sloped_right");
-		tile_sprites[4] = atlas.createSprite("ceiling_sloped_left");
-		tile_sprites[5] = atlas.createSprite("spawner");
-		tile_sprites[6] = atlas.createSprite("goal");
 	}
 
 	@Override
@@ -47,13 +46,15 @@ public class GUIHolder extends Holder
 	@Override
 	public void render()
 	{
-		
+		batch.begin();
+			for(Sprite s : block_sprites)
+				drawSprite(s);
+		batch.end();
 	}
 
 	@Override
 	public void dispose()
 	{
-		atlas.dispose();
-		game_atlas.dispose();
+		super.dispose();
 	}
 }
