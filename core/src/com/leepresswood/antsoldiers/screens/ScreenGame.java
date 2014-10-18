@@ -30,8 +30,8 @@ public class ScreenGame extends ScreenAdapter
 	public void render(float delta)
 	{//Update and draw -- in that order.
 		//Clear screen with dark gray before drawing.
-		Gdx.gl.glClearColor(0.1369f, 0.1369f, 0.1369f, 1f);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);System.out.println("here");
+		Gdx.gl.glClearColor(0.1f, 0.1f, 0.1f, 1f);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
 		game_holder.update(delta);
 		gui_holder.update(delta);
