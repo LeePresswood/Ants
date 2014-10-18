@@ -2,6 +2,7 @@ package com.leepresswood.antsoldiers.holders;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
+import com.leepresswood.antsoldiers.management.GameNumbers;
 
 public class GUIHolder extends Holder
 {
@@ -15,17 +16,18 @@ public class GUIHolder extends Holder
 		//TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("atlases/gui.atlas"));
 		
 		//The blocks will also be used as a "store", so load those, too.
-		float x = 0f;
-		float y = 0f;
 		float size = 50f;
-		block_sprites = new Sprite[NUMBER_OF_BLOCK_TYPES];	
-		for(int i = 0; i < NUMBER_OF_BLOCK_TYPES; i++)
+		float size_of_shelf = size * GameNumbers.NUMBER_OF_BLOCKS;
+		float x = holder_size.x / 2f + origin_point.x - size_of_shelf / 2f;
+		float y = 0f;
+		
+		block_sprites = new Sprite[GameNumbers.NUMBER_OF_BLOCKS];	
+		for(int i = 0; i < GameNumbers.NUMBER_OF_BLOCKS; i++)
 		{
 			block_sprites[i] = new Sprite(block_textures[i]);
 			block_sprites[i].setBounds(x, y, size, size);
 			x += size;
-		}
-		
+		}		
 	}
 
 	@Override

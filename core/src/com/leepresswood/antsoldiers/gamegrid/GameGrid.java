@@ -5,15 +5,15 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 
 public class GameGrid
 {
-
+	private Sprite[] blocks;
+	
+	public GameGrid()
+	{
+		
+	}
+	
 	public Sprite[] getBlocks()
 	{
 		return null;
 	}
-
-	public Sprite[] getItems()
-	{
-		return null;
-	}
-	
 }

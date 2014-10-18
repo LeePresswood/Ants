@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.leepresswood.antsoldiers.management.GameNumbers;
 
 public abstract class Holder
 {
@@ -13,7 +14,6 @@ public abstract class Holder
 	protected SpriteBatch batch;
 	
 	protected Texture[] block_textures;
-	protected final int NUMBER_OF_BLOCK_TYPES = 7;
 	
 	public Holder(Vector2 origin_point, Vector2 holder_size)
 	{
@@ -22,14 +22,14 @@ public abstract class Holder
 		this.batch = new SpriteBatch();
 		
 		//Grab all the block textures
-		block_textures = new Texture[NUMBER_OF_BLOCK_TYPES];
-		block_textures[0] = new Texture(Gdx.files.internal("blocks/ground_solid.png"));
-		block_textures[1] = new Texture(Gdx.files.internal("blocks/ground_sloped_right.png"));
-		block_textures[2] = new Texture(Gdx.files.internal("blocks/ground_sloped_left.png"));
-		block_textures[3] = new Texture(Gdx.files.internal("blocks/ceiling_sloped_right.png"));
-		block_textures[4] = new Texture(Gdx.files.internal("blocks/ceiling_sloped_left.png"));
-		block_textures[5] = new Texture(Gdx.files.internal("blocks/spawner.png"));
-		block_textures[6] = new Texture(Gdx.files.internal("blocks/goal.png"));
+		block_textures = new Texture[GameNumbers.NUMBER_OF_BLOCKS];
+		block_textures[GameNumbers.BLOCK_GROUND_SOLID] = new Texture(Gdx.files.internal("blocks/ground_solid.png"));
+		block_textures[GameNumbers.BLOCK_GROUND_SLOPED_RIGHT] = new Texture(Gdx.files.internal("blocks/ground_sloped_right.png"));
+		block_textures[GameNumbers.BLOCK_GROUND_SLOPED_LEFT] = new Texture(Gdx.files.internal("blocks/ground_sloped_left.png"));
+		block_textures[GameNumbers.BLOCK_CEILING_SLOPED_RIGHT] = new Texture(Gdx.files.internal("blocks/ceiling_sloped_right.png"));
+		block_textures[GameNumbers.BLOCK_CEILING_SLOPED_LEFT] = new Texture(Gdx.files.internal("blocks/ceiling_sloped_left.png"));
+		block_textures[GameNumbers.BLOCK_SPAWNER] = new Texture(Gdx.files.internal("blocks/spawner.png"));
+		block_textures[GameNumbers.BLOCK_GOAL] = new Texture(Gdx.files.internal("blocks/goal.png"));
 	}
 	
 	protected void drawSprite(Sprite s)

@@ -37,11 +37,8 @@ public class GameHolder extends Holder
 	@Override
 	public void render()
 	{
-		for(Sprite s : grid.getBlocks())
-			drawSprite(s);
-		
-		for(Sprite s : grid.getItems())
-			drawSprite(s);
+		//for(Sprite s : grid.getBlocks())
+		//	drawSprite(s);
 	}
 
 	@Override
