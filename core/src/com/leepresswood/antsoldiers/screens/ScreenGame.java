@@ -33,10 +33,10 @@ public class ScreenGame extends ScreenAdapter
 		Gdx.gl.glClearColor(40, 40, 40, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
-		gui_holder.update(delta);
 		game_holder.update(delta);
+		gui_holder.update(delta);
 		
-		gui_holder.render();
 		game_holder.render();
+		gui_holder.render();
 	}
 }
