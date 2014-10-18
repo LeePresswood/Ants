@@ -9,7 +9,7 @@ public class GameAntSoldiers extends Game
 	@Override
 	public void create()
 	{
-		this.setScreen(new ScreenGame(new ScreenCoordinates()));
+		this.setScreen(new ScreenGame(new ScreenCoordinates(), 1));
 	}	
 	
 	@Override

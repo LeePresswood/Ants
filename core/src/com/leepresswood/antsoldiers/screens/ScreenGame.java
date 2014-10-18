@@ -20,15 +20,17 @@ public class ScreenGame extends ScreenAdapter implements InputProcessor
 	
 	private float GUI_boundary_top;
 	
-	public ScreenGame(ScreenCoordinates screen_coords)
+	public ScreenGame(ScreenCoordinates screen_coords, int level)
 	{
 		origin_point = new Vector2(screen_coords.x, screen_coords.y);
 		screen_size = new Vector2(screen_coords.width, screen_coords.height);
 		
 		GUI_boundary_top = screen_size.y * GUI_PERCENT;
 		
-		gui_holder = new GUIHolder(origin_point, new Vector2(screen_size.x, GUI_boundary_top));
-		game_holder = new GameHolder(new Vector2(origin_point.x, origin_point.y + GUI_boundary_top), new Vector2(screen_size.x, screen_size.y * (1f - GUI_PERCENT)));
+		gui_holder = new GUIHolder(origin_point, new Vector2(screen_size.x, GUI_boundary_top), level);
+		game_holder = new GameHolder(new Vector2(origin_point.x, origin_point.y + GUI_boundary_top), new Vector2(screen_size.x, screen_size.y * (1f - GUI_PERCENT)), level);
+	
+		Gdx.input.setInputProcessor(this);
 	}
 
 	@Override

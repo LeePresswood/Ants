@@ -8,7 +8,7 @@ public class GUIHolder extends Holder
 {
 	private Sprite[] block_sprites;
 	
-	public GUIHolder(Vector2 origin_point, Vector2 holder_size)
+	public GUIHolder(Vector2 origin_point, Vector2 holder_size, int level)
 	{
 		super(origin_point, holder_size);
 		

@@ -11,7 +11,7 @@ public class GameHolder extends Holder
 	private Texture texture_ant;
 	private GameGrid grid;
 	
-	public GameHolder(Vector2 origin_point, Vector2 holder_size)
+	public GameHolder(Vector2 origin_point, Vector2 holder_size, int level)
 	{
 		super(origin_point, holder_size);		
 				
@@ -37,8 +37,8 @@ public class GameHolder extends Holder
 	@Override
 	public void render()
 	{
-		//for(Sprite s : grid.getBlocks())
-		//	drawSprite(s);
+		for(Sprite s : grid.getBlocks())
+			drawSprite(s);
 	}
 
 	@Override

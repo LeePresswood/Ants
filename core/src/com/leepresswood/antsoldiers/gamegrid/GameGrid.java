@@ -2,18 +2,20 @@
 package com.leepresswood.antsoldiers.gamegrid;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.leepresswood.antsoldiers.management.LevelParser;
 
 public class GameGrid
 {
 	private Sprite[] blocks;
 	
-	public GameGrid()
+	public GameGrid(int level)
 	{
-		
+		//The passed in level needs to be parsed
+		int[][] grid_values = LevelParser.getGrid(level);
 	}
 	
 	public Sprite[] getBlocks()
 	{
-		return null;
+		return blocks;
 	}
 }
