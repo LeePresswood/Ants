@@ -18,11 +18,11 @@ public abstract class Holder
 		this.batch = new SpriteBatch();
 	}
 	
-	public abstract void update(float delta);
-	public abstract void render();
-	
 	protected void drawSprite(Sprite s)
 	{
 		
 	}
+	
+	public abstract void update(float delta);
+	public abstract void render();
 }

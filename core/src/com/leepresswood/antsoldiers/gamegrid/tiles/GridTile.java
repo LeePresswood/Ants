@@ -1,4 +1,4 @@
-package com.leepresswood.antsoldiers.gamegrid;
+package com.leepresswood.antsoldiers.gamegrid.tiles;
 
 import com.badlogic.gdx.math.Vector2;
 import com.leepresswood.antsoldiers.gamegrid.griditems.GridItem;
