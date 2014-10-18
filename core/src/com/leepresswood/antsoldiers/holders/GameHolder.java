@@ -2,6 +2,7 @@ package com.leepresswood.antsoldiers.holders;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 import com.leepresswood.antsoldiers.gamegrid.GameGrid;
 
@@ -36,7 +37,11 @@ public class GameHolder extends Holder
 	@Override
 	public void render()
 	{
+		for(Sprite s : grid.getBlocks())
+			drawSprite(s);
 		
+		for(Sprite s : grid.getItems())
+			drawSprite(s);
 	}
 
 	@Override

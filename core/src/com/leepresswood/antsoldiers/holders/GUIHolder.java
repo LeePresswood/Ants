@@ -1,14 +1,11 @@
 package com.leepresswood.antsoldiers.holders;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector2;
 
 public class GUIHolder extends Holder
 {
-	private TextureAtlas atlas, game_atlas;
 	private Sprite[] block_sprites;
-
 	
 	public GUIHolder(Vector2 origin_point, Vector2 holder_size)
 	{
