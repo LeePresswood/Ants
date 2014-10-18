@@ -19,7 +19,7 @@ public class GameHolder extends Holder
 		texture_ant = new Texture(Gdx.files.internal("ants/ant.png"));;
 		
 		//Initialize the grid.
-		grid = new GameGrid();
+		grid = new GameGrid(level, block_textures);
 	}
 
 	@Override
@@ -37,8 +37,9 @@ public class GameHolder extends Holder
 	@Override
 	public void render()
 	{
-		for(Sprite s : grid.getBlocks())
-			drawSprite(s);
+		if(grid.getBlocks() != null)
+			for(Sprite s : grid.getBlocks())
+				drawSprite(s);
 	}
 
 	@Override
