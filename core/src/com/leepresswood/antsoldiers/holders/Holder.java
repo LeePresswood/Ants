@@ -19,10 +19,11 @@ public abstract class Holder
 	}
 	
 	protected void drawSprite(Sprite s)
-	{
-		
+	{//Draw the sprites in relation to where the holder's origin_point is.
+		batch.draw(s.getTexture(), s.getX() + origin_point.x, s.getY() + origin_point.y, s.getWidth(), s.getHeight());
 	}
 	
+	public abstract void doTouch(float x, float y);
 	public abstract void update(float delta);
 	public abstract void render();
 	public abstract void dispose();

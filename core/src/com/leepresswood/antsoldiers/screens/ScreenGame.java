@@ -18,13 +18,17 @@ public class ScreenGame extends ScreenAdapter implements InputProcessor
 	private GUIHolder gui_holder;
 	private GameHolder game_holder;
 	
+	private float GUI_boundary_top;
+	
 	public ScreenGame(ScreenCoordinates screen_coords)
 	{
 		origin_point = new Vector2(screen_coords.x, screen_coords.y);
 		screen_size = new Vector2(screen_coords.width, screen_coords.height);
 		
-		gui_holder = new GUIHolder(origin_point, new Vector2(screen_size.x, screen_size.y * GUI_PERCENT));
-		game_holder = new GameHolder(new Vector2(origin_point.x, origin_point.y + GUI_PERCENT * screen_coords.y), new Vector2(screen_size.x, screen_size.y * (1f - GUI_PERCENT)));
+		GUI_boundary_top = screen_size.y * GUI_PERCENT;
+		
+		gui_holder = new GUIHolder(origin_point, new Vector2(screen_size.x, GUI_boundary_top));
+		game_holder = new GameHolder(new Vector2(origin_point.x, origin_point.y + GUI_boundary_top), new Vector2(screen_size.x, screen_size.y * (1f - GUI_PERCENT)));
 	}
 
 	@Override
@@ -63,7 +67,14 @@ public class ScreenGame extends ScreenAdapter implements InputProcessor
 	public boolean touchDown(int screenX, int screenY, int pointer, int button)
 	{
 		//Determine where the touch was.
-		
+		if(screenY <= GUI_boundary_top)
+		{//Touched the GUI.
+			gui_holder.doTouch(screenX, screenY);
+		}
+		else
+		{//Touched the game.
+			game_holder.doTouch(screenX, screenY);
+		}
 		
 		return true;
 	}

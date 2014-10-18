@@ -33,6 +33,12 @@ public class GameHolder extends Holder
 	}
 
 	@Override
+	public void doTouch(float x, float y)
+	{
+		
+	}
+
+	@Override
 	public void update(float delta)
 	{
 		
