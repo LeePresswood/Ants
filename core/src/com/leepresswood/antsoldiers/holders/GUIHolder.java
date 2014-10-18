@@ -6,6 +6,7 @@ import com.badlogic.gdx.math.Vector2;
 
 public class GUIHolder extends Holder
 {
+	private TextureAtlas atlas;
 	public GUIHolder(Vector2 origin_point, Vector2 holder_size)
 	{
 		super(origin_point, holder_size);
@@ -29,6 +30,6 @@ public class GUIHolder extends Holder
 	@Override
 	public void dispose()
 	{
-		
+		atlas.dispose();
 	}
 }

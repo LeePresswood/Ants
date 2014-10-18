@@ -7,6 +7,7 @@ import com.badlogic.gdx.math.Vector2;
 
 public class GameHolder extends Holder
 {
+	private TextureAtlas atlas;
 	private Texture texture_ant, texture_ground_solid, texture_ground_sloped_right, texture_ground_sloped_left, texture_ceiling_sloped_left, texture_ceiling_sloped_right, texture_spawner, texture_goal;
 	
 	public GameHolder(Vector2 origin_point, Vector2 holder_size)
@@ -14,7 +15,7 @@ public class GameHolder extends Holder
 		super(origin_point, holder_size);
 		
 		//Grab all the game textures
-		TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("atlases/game.pack"));
+		atlas = new TextureAtlas(Gdx.files.internal("atlases/game.pack"));
 		
 		//Blocks
 		texture_ground_solid = atlas.findRegion("ground_solid").getTexture();
@@ -46,6 +47,6 @@ public class GameHolder extends Holder
 	@Override
 	public void dispose()
 	{
-		
+		atlas.dispose();
 	}
 }
