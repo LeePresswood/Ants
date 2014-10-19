@@ -2,14 +2,18 @@ package com.leepresswood.antsoldiers.holders;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.leepresswood.antsoldiers.management.GameNumbers;
 
 public abstract class Holder
 {	
+	protected SpriteBatch batch;
 	protected Texture[] block_textures;
 	
-	public Holder(int level)
+	public Holder()
 	{		
+		batch = new SpriteBatch();
+		
 		//Grab all the block textures
 		block_textures = new Texture[GameNumbers.NUMBER_OF_BLOCKS];
 		block_textures[GameNumbers.BLOCK_GROUND_SOLID] = new Texture(Gdx.files.internal("blocks/ground_solid.png"));

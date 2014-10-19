@@ -1,6 +1,7 @@
 package com.leepresswood.antsoldiers.holders;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
@@ -12,9 +13,12 @@ public class GameHolder extends Holder
 	private Texture texture_ant;
 	private GameGrid grid;
 	
+	private OrthographicCamera camera;
+	
 	public GameHolder(int level)
-	{
-		super(origin_point, holder_size);		
+	{		
+		camera = new OrthographicCamera();
+		camera.setToOrtho(false, 800, 400);
 				
 		//Ants
 		texture_ant = new Texture(Gdx.files.internal("ants/ant.png"));;
@@ -32,12 +36,15 @@ public class GameHolder extends Holder
 	@Override
 	public void update(float delta)
 	{
-		
+		camera.update();
 	}
 
 	@Override
 	public void render()
 	{
+		
+		batch.setProjectionMatrix(camera.combined);
+		
 		batch.begin();
 			GridBlock[][] blocks = grid.getBlocks();
 			for(int j = 0; j < blocks.length; j++)

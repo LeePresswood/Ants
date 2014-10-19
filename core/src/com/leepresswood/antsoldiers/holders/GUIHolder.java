@@ -9,9 +9,7 @@ public class GUIHolder extends Holder
 	private Sprite[] block_sprites;
 	
 	public GUIHolder(int level)
-	{
-		super(origin_point, holder_size);
-		
+	{	
 		//Grab all the GUI textures
 		//TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("atlases/gui.atlas"));
 		
