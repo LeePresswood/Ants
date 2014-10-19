@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 import com.leepresswood.antsoldiers.gamegrid.GameGrid;
 import com.leepresswood.antsoldiers.gamegrid.tiles.GridBlock;
+import com.leepresswood.antsoldiers.screens.ScreenGame;
 
 public class GameHolder extends Holder
 {	
@@ -15,7 +16,7 @@ public class GameHolder extends Holder
 	
 	private OrthographicCamera camera;
 	
-	public GameHolder(int level)
+	public GameHolder(ScreenGame screenGame, int level)
 	{		
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 800, 400);

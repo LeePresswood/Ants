@@ -3,12 +3,13 @@ package com.leepresswood.antsoldiers.holders;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 import com.leepresswood.antsoldiers.management.GameNumbers;
+import com.leepresswood.antsoldiers.screens.ScreenGame;
 
 public class GUIHolder extends Holder
 {
 	private Sprite[] block_sprites;
 	
-	public GUIHolder(int level)
+	public GUIHolder(ScreenGame screenGame, int level)
 	{	
 		//Grab all the GUI textures
 		//TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("atlases/gui.atlas"));

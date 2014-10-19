@@ -14,17 +14,17 @@ import com.leepresswood.antsoldiers.holders.ScreenCoordinates;
 
 public class ScreenGame extends ScreenAdapter
 {	
-	private GameAntSoldiers game;
+	public GameAntSoldiers game;
 		
-	private GUIHolder gui_holder;
-	private GameHolder game_holder;	
+	public GUIHolder gui_holder;
+	public GameHolder game_holder;	
 	
 	public ScreenGame(GameAntSoldiers game, int level)
 	{
 		this.game = game;
 				
-		gui_holder = new GUIHolder(level);
-		game_holder = new GameHolder(level);
+		gui_holder = new GUIHolder(this, level);
+		game_holder = new GameHolder(this, level);
 	}
 
 	@Override
