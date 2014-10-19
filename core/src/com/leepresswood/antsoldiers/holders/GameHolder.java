@@ -11,7 +11,6 @@ import com.leepresswood.antsoldiers.screens.ScreenGame;
 
 public class GameHolder extends Holder
 {	
-	private Texture texture_ant;
 	private GameGrid grid;
 	
 	private OrthographicCamera camera;
@@ -20,9 +19,6 @@ public class GameHolder extends Holder
 	{		
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 800, 400);
-				
-		//Ants
-		texture_ant = new Texture(Gdx.files.internal("ants/ant.png"));;
 		
 		//Initialize the grid.
 		grid = new GameGrid(origin_point, holder_size, level, block_textures);
@@ -52,12 +48,5 @@ public class GameHolder extends Holder
 				for(int i = 0; i < blocks[0].length; i++)
 					drawSprite(blocks[j][i]);
 		batch.end();
-	}
-
-	@Override
-	public void dispose()
-	{
-		super.dispose();
-		texture_ant.dispose();
 	}
 }

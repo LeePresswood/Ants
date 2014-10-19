@@ -49,10 +49,4 @@ public class GUIHolder extends Holder
 				drawSprite(s);
 		batch.end();
 	}
-
-	@Override
-	public void dispose()
-	{
-		super.dispose();
-	}
 }
