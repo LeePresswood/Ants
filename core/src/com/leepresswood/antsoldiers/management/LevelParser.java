@@ -10,7 +10,6 @@ public class LevelParser
 	public static int[][] getGrid(int level)
 	{
 		Scanner scanner = new Scanner(Gdx.files.internal("levels/" + level + ".lvl").readString());
-		
 		int height = scanner.nextInt();
 		int width = scanner.nextInt();		
 		int[][] grid = new int[height][width];

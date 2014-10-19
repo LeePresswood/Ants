@@ -4,31 +4,38 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.leepresswood.antsoldiers.GameAntSoldiers;
 import com.leepresswood.antsoldiers.holders.GUIHolder;
 import com.leepresswood.antsoldiers.holders.GameHolder;
 import com.leepresswood.antsoldiers.holders.ScreenCoordinates;
 
 public class ScreenGame extends ScreenAdapter implements InputProcessor
-{
-	private Vector2 origin_point;
-	private Vector2 screen_size;
-	private final float GUI_PERCENT = 0.2f;
+{	
+	private GameAntSoldiers game;
+	
+	private OrthographicCamera camera;
 	
 	private GUIHolder gui_holder;
-	private GameHolder game_holder;
+	private GameHolder game_holder;	
 	
-	private float GUI_boundary_top;
+	private SpriteBatch game_batch;
+	private SpriteBatch gui_batch;
 	
-	public ScreenGame(ScreenCoordinates screen_coords, int level)
+	public ScreenGame(GameAntSoldiers game, int level)
 	{
-		origin_point = new Vector2(screen_coords.x, screen_coords.y);
-		screen_size = new Vector2(screen_coords.width, screen_coords.height);
+		this.game = game;
 		
-		GUI_boundary_top = screen_size.y * GUI_PERCENT;
+		camera = new OrthographicCamera();
+		camera.setToOrtho(false, 800, 400);
+				
+		gui_holder = new GUIHolder(level);
+		game_holder = new GameHolder(level);
 		
-		gui_holder = new GUIHolder(origin_point, new Vector2(screen_size.x, GUI_boundary_top), level);
-		game_holder = new GameHolder(new Vector2(origin_point.x, origin_point.y + GUI_boundary_top), new Vector2(screen_size.x, screen_size.y * (1f - GUI_PERCENT)), level);
+		game_batch = new SpriteBatch();
+		gui_batch = new SpriteBatch();
 	
 		Gdx.input.setInputProcessor(this);
 	}
