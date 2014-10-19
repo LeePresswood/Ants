@@ -11,9 +11,11 @@ import com.leepresswood.antsoldiers.screens.ScreenGame;
 
 public class GameHolder extends Holder
 {	
-	private GameGrid grid;
-	
 	private OrthographicCamera camera;
+	private final int CAMERA_WIDTH = 800;
+	private final int CAMERA_HEIGHT = 400;
+	
+	private GameGrid grid;
 	
 	public GameHolder(ScreenGame screenGame, int level)
 	{		
@@ -21,7 +23,7 @@ public class GameHolder extends Holder
 		camera.setToOrtho(false, 800, 400);
 		
 		//Initialize the grid.
-		grid = new GameGrid(origin_point, holder_size, level, block_textures);
+		//grid = new GameGrid(origin_point, holder_size, level, block_textures);
 	}
 
 	@Override
@@ -43,10 +45,7 @@ public class GameHolder extends Holder
 		batch.setProjectionMatrix(camera.combined);
 		
 		batch.begin();
-			GridBlock[][] blocks = grid.getBlocks();
-			for(int j = 0; j < blocks.length; j++)
-				for(int i = 0; i < blocks[0].length; i++)
-					drawSprite(blocks[j][i]);
+			
 		batch.end();
 	}
 }

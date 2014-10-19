@@ -9,21 +9,16 @@ public class GUIHolder extends Holder
 {
 	private Sprite[] block_sprites;
 	
-	public GUIHolder(ScreenGame screenGame, int level)
-	{	
-		//Grab all the GUI textures
-		//TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("atlases/gui.atlas"));
-		
-		//The blocks will also be used as a "store", so load those, too.
-		float size = 50f;
-		float size_of_shelf = size * GameNumbers.NUMBER_OF_BLOCKS;
-		float x = holder_size.x / 2f + origin_point.x - size_of_shelf / 2f;
+	public GUIHolder(ScreenGame screen_game, int level)
+	{
+		float x = 0f;
 		float y = 0f;
+		float size = 50f;
 		
 		block_sprites = new Sprite[GameNumbers.NUMBER_OF_BLOCKS];	
 		for(int i = 0; i < GameNumbers.NUMBER_OF_BLOCKS; i++)
 		{
-			block_sprites[i] = new Sprite(block_textures[i]);
+			block_sprites[i] = new Sprite(screen_game.assets.block_textures[i]);
 			block_sprites[i].setBounds(x, y, size, size);
 			x += size;
 		}		
@@ -46,7 +41,7 @@ public class GUIHolder extends Holder
 	{
 		batch.begin();
 			for(Sprite s : block_sprites)
-				drawSprite(s);
+				s.draw(batch);
 		batch.end();
 	}
 }
