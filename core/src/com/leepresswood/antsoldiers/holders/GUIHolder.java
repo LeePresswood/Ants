@@ -23,12 +23,6 @@ public class GUIHolder extends Holder
 			x += size;
 		}		
 	}
-
-	@Override
-	public void doTouch(float x, float y)
-	{
-		
-	}
 	
 	@Override
 	public void update(float delta)

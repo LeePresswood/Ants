@@ -13,7 +13,7 @@ public class GameGrid
 	public GameGrid(Vector2 origin_point, Vector2 holder_size, int level, Texture[] block_textures)
 	{
 		//The passed in level needs to be parsed
-		int[][] grid_values = LevelParser.getGrid(level);
+		//int[][] grid_values = LevelParser.getGrid(level);
 		int blocks_across = grid_values[0].length;
 		int blocks_down = grid_values.length;
 		

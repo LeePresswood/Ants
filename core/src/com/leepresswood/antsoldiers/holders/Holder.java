@@ -11,7 +11,6 @@ public abstract class Holder
 		batch = new SpriteBatch();
 	}
 	
-	public abstract void doTouch(float x, float y);
 	public abstract void update(float delta);
 	public abstract void render();
 }
