@@ -16,5 +16,9 @@ public abstract class GridBlock extends Sprite
 		this.type = type;
 	}
 	
+	/* This function is where the moving magic happens.
+	 * Pass in the bottom-middle of the ant and the speed the ant is traveling.
+	 * this function will return the new location of the ant.
+	 */
 	public abstract Vector2 next_position(Vector2 current_position, Vector2 speed);
 }
