@@ -5,7 +5,6 @@ import com.badlogic.gdx.math.Vector2;
 
 public class BlockGroundSolid extends GridBlock
 {
-
 	public BlockGroundSolid(int index, int type, Texture texture)
 	{
 		super(index, type, texture);
@@ -14,7 +13,10 @@ public class BlockGroundSolid extends GridBlock
 	@Override
 	public Vector2 next_position(Vector2 current_position, Vector2 speed)
 	{
-		return null;
+		/* This is a simple block.
+		 * Current position's Y coordinate should be at the very top of this.
+		 * X will be dependent on the speed's X component. Speed.y is ignored.
+		 */
+		return new Vector2(current_position.x + speed.x, this.getY() + this.getHeight());
 	}
-	
 }

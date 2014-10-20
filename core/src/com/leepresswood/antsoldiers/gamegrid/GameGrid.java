@@ -3,6 +3,7 @@ package com.leepresswood.antsoldiers.gamegrid;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
+import com.leepresswood.antsoldiers.gamegrid.tiles.BlockGroundSolid;
 import com.leepresswood.antsoldiers.gamegrid.tiles.GridBlock;
 import com.leepresswood.antsoldiers.management.LevelParser;
 import com.leepresswood.antsoldiers.screens.ScreenGame;
@@ -43,8 +44,8 @@ public class GameGrid
 	{
 		switch(type)
 		{
-			case 0:
-				return new GridBlock(counter, screen_game.assets.block_textures[type]);
+			case 0:		//Solid.
+				return new BlockGroundSolid(counter, type, screen_game.assets.block_textures[type]);
 			default:
 				System.out.println("Error: Unrecognized block type.");
 				return null;
