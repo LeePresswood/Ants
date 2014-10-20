@@ -12,6 +12,8 @@ public abstract class GridBlock extends Sprite
 	public GridBlock(int index, int type, Texture texture)
 	{
 		super(texture);
+		this.index = index;
+		this.type = type;
 	}
 	
 	public abstract Vector2 next_position(Vector2 current_position, Vector2 speed);

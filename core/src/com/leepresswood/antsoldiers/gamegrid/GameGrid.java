@@ -10,9 +10,12 @@ import com.leepresswood.antsoldiers.screens.ScreenGame;
 public class GameGrid
 {
 	public GridBlock[][] blocks;
+	private ScreenGame screen_game;
 	
 	public GameGrid(ScreenGame screen_game, int[][] grid)
 	{
+		this.screen_game = screen_game;
+		
 		//The passed in level grid has all the block types. Make the blocks using the collected data.
 		int blocks_down = grid.length;
 		int blocks_across = grid[0].length;
@@ -25,7 +28,7 @@ public class GameGrid
 		{
 			for(int i = 0; i < blocks_across; i++)
 			{
-				blocks[j][i] = new GridBlock(index_counter++, grid[j][i], screen_game.assets.block_textures[grid[j][i]]);
+				blocks[j][i] = getGridblockFromType(grid[j][i], index_counter++);
 				blocks[j][i].setBounds(current_x, current_y, 1, 1);
 				current_x += 1f;
 			}	
@@ -33,9 +36,18 @@ public class GameGrid
 			//After finishing the row, go down a row and restart.
 			current_x = 0f;
 			current_y += 1f;
-		}
-				
+		}				
 	}
 	
-	
+	private GridBlock getGridblockFromType(int type, int counter)
+	{
+		switch(type)
+		{
+			case 0:
+				return new GridBlock(counter, screen_game.assets.block_textures[type]);
+			default:
+				System.out.println("Error: Unrecognized block type.");
+				return null;
+		}
+	}
 }
