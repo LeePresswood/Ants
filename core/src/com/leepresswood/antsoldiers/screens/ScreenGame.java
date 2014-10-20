@@ -78,8 +78,12 @@ public class ScreenGame extends ScreenAdapter implements GestureListener
 
 	@Override
 	public boolean panStop(float x, float y, int pointer, int button)
-	{//Make sure we're still bound to the game world.		
-		game_holder.scroll_stop();
+	{//Make sure we're still bound to the game world.
+		
+		//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+		//game_holder.scroll_stop();
+		//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+		
 		return true;
 	}
 
