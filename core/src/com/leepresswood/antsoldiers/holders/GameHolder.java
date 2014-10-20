@@ -3,9 +3,6 @@ package com.leepresswood.antsoldiers.holders;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.math.Vector3;
 import com.leepresswood.antsoldiers.gamegrid.GameGrid;
 import com.leepresswood.antsoldiers.management.LevelParser;
 import com.leepresswood.antsoldiers.screens.ScreenGame;
@@ -16,12 +13,7 @@ public class GameHolder extends Holder
 	private final int WORLD_VIEW = 7;
 	private int WORLD_TOTAL_HORIZONTAL;
 	private int WORLD_TOTAL_VERTICAL;
-	
-	//Scrolling and touching.
-	private boolean touched;
-	private Vector2 dragOld;
-	private Vector2 dragNew;
-	
+		
 	private Sprite ant;
 	
 	private GameGrid grid;
@@ -83,10 +75,8 @@ public class GameHolder extends Holder
 
 	@Override
 	public void render()
-	{
-		
-		batch.setProjectionMatrix(camera.combined);
-		
+	{		
+		batch.setProjectionMatrix(camera.combined);		
 		batch.begin();
 			ant.draw(batch);
 		batch.end();
