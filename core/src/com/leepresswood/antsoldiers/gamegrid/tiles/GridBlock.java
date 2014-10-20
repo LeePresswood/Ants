@@ -4,15 +4,15 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 
-public class GridBlock extends Sprite
+public abstract class GridBlock extends Sprite
 {
-	public GridBlock(int type, Texture texture)
+	public int index;
+	public int type;
+	
+	public GridBlock(int index, int type, Texture texture)
 	{
 		super(texture);
 	}
-	public int coord_x;
-	public int coord_y;
 	
-	private Vector2 location;
-	private float size;
+	public abstract Vector2 next_position(Vector2 current_position, Vector2 speed);
 }

@@ -34,7 +34,7 @@ public class GameHolder extends Holder
 		ant.setBounds(0, 0, 0.2f, 0.2f);
 		
 		//Initialize the grid.
-		//grid = new GameGrid(origin_point, holder_size, level, block_textures);
+		grid = new GameGrid(screen_game, lp.grid);
 	}
 
 	public void scroll(float delta_x, float delta_y)
@@ -68,9 +68,7 @@ public class GameHolder extends Holder
 	@Override
 	public void update(float delta)
 	{
-		//ant.translateX(0.1f);		
 		
-		//camera.position.set(ant.getX(), ant.getY(), 0);
 	}
 
 	@Override

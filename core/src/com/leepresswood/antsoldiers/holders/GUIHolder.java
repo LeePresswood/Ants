@@ -1,7 +1,6 @@
 package com.leepresswood.antsoldiers.holders;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.math.Vector2;
 import com.leepresswood.antsoldiers.management.GameNumbers;
 import com.leepresswood.antsoldiers.screens.ScreenGame;
 
