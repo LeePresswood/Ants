@@ -11,8 +11,8 @@ public class GameHolder extends Holder
 {	
 	private OrthographicCamera camera;
 	private final int WORLD_VIEW = 10;
-	//private int WORLD_TOTAL_HORIZONTAL;
-	//private int WORLD_TOTAL_VERTICAL;
+	private int WORLD_TOTAL_HORIZONTAL;
+	private int WORLD_TOTAL_VERTICAL;
 		
 	private Sprite ant;
 	
@@ -22,8 +22,8 @@ public class GameHolder extends Holder
 	{		
 		//Use the level parser to determine how many total squares across and down our world has.
 		LevelParser lp = new LevelParser(level);
-		//WORLD_TOTAL_HORIZONTAL = lp.width;
-		//WORLD_TOTAL_VERTICAL = lp.height;
+		WORLD_TOTAL_HORIZONTAL = lp.width;
+		WORLD_TOTAL_VERTICAL = lp.height;
 		
 		//Create the camera using the found number of blocks above.
 		camera = new OrthographicCamera(WORLD_VIEW, WORLD_VIEW * Gdx.graphics.getHeight() / Gdx.graphics.getWidth());
@@ -45,10 +45,10 @@ public class GameHolder extends Holder
 	
 	public void scroll_stop()
 	{//Check camera boundaries and move if necessary.
-		float left = camera.viewportWidth / 2f + 2f;
-		float right = -camera.viewportWidth / 2f + 2f;
-		float top = camera.viewportHeight / 2f + 2f;
-		float down = -camera.viewportHeight / 2f + 2f;
+		float left = WORLD_TOTAL_HORIZONTAL;
+		float right = 0;
+		float top = WORLD_TOTAL_VERTICAL;
+		float down = 0;
 		
 		//X
 		if(camera.position.x > left)
