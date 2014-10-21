@@ -63,4 +63,8 @@ public class GameGrid
 			for(int i = 0; i < blocks_across; i++)
 				blocks[j][i].draw(batch);
 	}
+
+	public void update(float delta)
+	{
+	}
 }

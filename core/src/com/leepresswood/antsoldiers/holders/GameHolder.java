@@ -2,8 +2,10 @@ package com.leepresswood.antsoldiers.holders;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Vector2;
+import com.leepresswood.antsoldiers.ants.Ant;
 import com.leepresswood.antsoldiers.gamegrid.GameGrid;
+import com.leepresswood.antsoldiers.management.GameNumbers;
 import com.leepresswood.antsoldiers.management.LevelParser;
 import com.leepresswood.antsoldiers.screens.ScreenGame;
 
@@ -14,7 +16,7 @@ public class GameHolder extends Holder
 	private int WORLD_TOTAL_HORIZONTAL;
 	private int WORLD_TOTAL_VERTICAL;
 		
-	private Sprite ant;
+	private Ant[] ant;
 	
 	private GameGrid grid;
 	
@@ -30,10 +32,10 @@ public class GameHolder extends Holder
 		camera.position.set(camera.viewportWidth / 2f, camera.viewportHeight / 2f, 0);
 		camera.update();
 		
-		ant = new Sprite(screen_game.assets.texture_ant);
-		ant.setBounds(0, 0, 0.2f, 0.2f);
-		
-		//Initialize the grid.
+		//Visible objects will be the ants and the grid (with its items).
+		ant = new Ant[GameNumbers.ANTS_NUMBER_SPAWNED];
+		for(int i = 0; i < GameNumbers.ANTS_NUMBER_SPAWNED; i++)
+			ant[i] = new Ant(i, screen_game.assets.texture_ant, new Vector2(0, 0));
 		grid = new GameGrid(screen_game, lp.grid);
 	}
 
@@ -68,7 +70,13 @@ public class GameHolder extends Holder
 	@Override
 	public void update(float delta)
 	{
+		grid.update(delta);
 		
+		//Every ant needs to be updated for its position.
+		for(Ant a : ant)
+		{
+			
+		}
 	}
 
 	@Override
@@ -77,6 +85,8 @@ public class GameHolder extends Holder
 		batch.setProjectionMatrix(camera.combined);		
 		batch.begin();
 			grid.render(batch);
+			
+			//for blah-blah-blah
 			ant.draw(batch);
 		batch.end();
 	}

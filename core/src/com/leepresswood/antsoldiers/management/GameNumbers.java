@@ -11,4 +11,10 @@ public final class GameNumbers
 	public static final int BLOCK_CEILING_SLOPED_LEFT = 4;
 	public static final int BLOCK_SPAWNER = 5;
 	public static final int BLOCK_GOAL = 6;	
+	
+	//Ant Numbers
+	public static final int ANTS_NUMBER_SPAWNED = 10;
+	public static final float ANT_SPEED_HORIZONTAL = 0.1f;
+	public static final float ANT_SPEED_VERTICAL = 0.1f;
+
 }
