@@ -15,6 +15,11 @@ public class Ant extends Sprite
 		this.index = index;
 		this.position = position;
 		
-		speed = new Vector2(0.1f, 0f);
+		speed = new Vector2(1f, 0f);
+	}
+
+	public void update(float delta)
+	{//Don't change the position here. That will be changed by the blocks. This will just change the walking animation of the ant.
+		
 	}
 }

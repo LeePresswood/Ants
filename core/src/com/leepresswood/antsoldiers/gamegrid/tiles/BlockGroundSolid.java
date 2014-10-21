@@ -11,7 +11,7 @@ public class BlockGroundSolid extends GridBlock
 	}
 
 	@Override
-	public Vector2 next_position(Vector2 current_position, Vector2 speed)
+	public Vector2 nextPosition(Vector2 current_position, Vector2 speed)
 	{
 		/* This is a simple block.
 		 * Current position's Y coordinate should be at the very top of this.

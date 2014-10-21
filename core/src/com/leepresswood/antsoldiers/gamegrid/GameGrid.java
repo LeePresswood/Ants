@@ -2,6 +2,7 @@
 package com.leepresswood.antsoldiers.gamegrid;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.leepresswood.antsoldiers.ants.Ant;
 import com.leepresswood.antsoldiers.gamegrid.tiles.BlockGroundSolid;
 import com.leepresswood.antsoldiers.gamegrid.tiles.GridBlock;
 import com.leepresswood.antsoldiers.management.GameNumbers;
@@ -65,6 +66,12 @@ public class GameGrid
 	}
 
 	public void update(float delta)
-	{
+	{//Update tiles here. Good for animated tiles.
+		
+	}
+
+	public void updateAnt(Ant a, float delta)
+	{//Ant passed into this function. Find its block and call that block's nextPosition().
+		
 	}
 }

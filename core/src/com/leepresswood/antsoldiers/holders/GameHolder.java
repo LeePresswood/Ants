@@ -75,7 +75,8 @@ public class GameHolder extends Holder
 		//Every ant needs to be updated for its position.
 		for(Ant a : ant)
 		{
-			
+			grid.updateAnt(a, delta);
+			a.update(delta);
 		}
 	}
 
@@ -84,10 +85,9 @@ public class GameHolder extends Holder
 	{		
 		batch.setProjectionMatrix(camera.combined);		
 		batch.begin();
-			grid.render(batch);
-			
-			//for blah-blah-blah
-			ant.draw(batch);
+			grid.render(batch);			
+			for(Ant a : ant)
+				a.draw(batch);			
 		batch.end();
 	}
 }
