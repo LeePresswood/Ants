@@ -16,7 +16,7 @@ public class GameHolder extends Holder
 	public int WORLD_TOTAL_HORIZONTAL;
 	public int WORLD_TOTAL_VERTICAL;
 		
-	public Ant[] ant;	
+	public Ant[] ants;	
 	public GameGrid grid;
 	
 	public GameHolder(ScreenGame screen_game, int level)
@@ -32,9 +32,9 @@ public class GameHolder extends Holder
 		camera.update();
 		
 		//Visible objects will be the ants and the grid (with its items).
-		ant = new Ant[GameNumbers.ANTS_NUMBER_SPAWNED];
+		ants = new Ant[GameNumbers.ANTS_NUMBER_SPAWNED];
 		for(int i = 0; i < GameNumbers.ANTS_NUMBER_SPAWNED; i++)
-			ant[i] = new Ant(i, screen_game.assets.texture_ant, new Vector2(0, 0));
+			ants[i] = new Ant(i, screen_game.assets.texture_ant, new Vector2(0, 0));
 		grid = new GameGrid(screen_game, lp.grid);
 	}
 
@@ -72,7 +72,7 @@ public class GameHolder extends Holder
 		grid.update(delta);
 		
 		//Every ant needs to be updated for its position.
-		for(Ant a : ant)
+		for(Ant a : ants)
 		{
 			grid.updateAnt(a, delta);
 			a.update(delta);
@@ -85,8 +85,8 @@ public class GameHolder extends Holder
 		batch.setProjectionMatrix(camera.combined);		
 		batch.begin();
 			grid.render(batch);			
-			//for(Ant a : ant)
-				//a.draw(batch);			
+			for(Ant a : ants)
+				a.draw(batch);			
 		batch.end();
 	}
 }
