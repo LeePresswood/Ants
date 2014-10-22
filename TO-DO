@@ -1,15 +1,12 @@
 A list of some foreseen changes and additions:
 ======================================
-- Find a way to move the ants. (IN PROGRESS)
 - Add ant sprites.
 	- This includes walking animations.
-- Add block sprites.
+- Add block sprites.				(IN PROGRESS)
 	- This includes item sprites.
 - Determine if there's a difference between blocks on the screen and placeable items.
 	- There probably should be. When we get to the removal of items, we don't want to remove the foundation blocks that were already there when the level was loaded.
 	- This gives the question of where the items will be stored.
 		- Like the ants, they could be separate. It's easy enough to determine which block we're using simply by looking at the x and y values of the item/ant.
-- The above just reminded me: Flip the grid of blocks (if it's not already flipped).
-	- Right now, the map is probably flipped vertically from the way it's read.
 - Some blocks will have very similar rules. For example: The slanted tiles and the slanted item. Both are walked over diagonally.
-	- How do we deal with this?
+	- How do we deal with this without repeating code?
