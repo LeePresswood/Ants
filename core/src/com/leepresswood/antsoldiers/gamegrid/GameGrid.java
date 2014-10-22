@@ -35,7 +35,7 @@ public class GameGrid
 			for(int i = 0; i < blocks_across; i++)
 			{
 				blocks[j][i] = getGridblockFromType(grid[j][i], index_counter++);
-				blocks[j][i].setBounds(current_x, current_y, 1, 1);
+				blocks[j][i].setBounds(current_x, current_y, GameNumbers.BLOCK_SIZE, GameNumbers.BLOCK_SIZE);
 				current_x += GameNumbers.BLOCK_SIZE;
 			}	
 			
