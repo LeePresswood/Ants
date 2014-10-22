@@ -85,8 +85,8 @@ public class GameHolder extends Holder
 		batch.setProjectionMatrix(camera.combined);		
 		batch.begin();
 			grid.render(batch);			
-			for(Ant a : ant)
-				a.draw(batch);			
+			//for(Ant a : ant)
+				//a.draw(batch);			
 		batch.end();
 	}
 }
