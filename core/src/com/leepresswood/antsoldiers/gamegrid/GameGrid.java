@@ -29,7 +29,7 @@ public class GameGrid
 		blocks = new GridBlock[blocks_down][blocks_across];
 		
 		float current_x = 0f;
-		float current_y = blocks_down - GameNumbers.BLOCK_SIZE;		
+		float current_y = (blocks_down - 1) * GameNumbers.BLOCK_SIZE;		
 		for(int j = 0; j < blocks_down; j++)
 		{
 			for(int i = 0; i < blocks_across; i++)
