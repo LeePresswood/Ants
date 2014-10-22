@@ -16,8 +16,7 @@ public class GameGrid
 	private ScreenGame screen_game;
 	
 	private int blocks_down;
-	private int blocks_across;
-	
+	private int blocks_across;	
 	
 	public GameGrid(ScreenGame screen_game, int[][] grid)
 	{
@@ -30,7 +29,7 @@ public class GameGrid
 		blocks = new GridBlock[blocks_down][blocks_across];
 		
 		float current_x = 0f;
-		float current_y = 0f;		
+		float current_y = screen_game.game_holder.;		
 		for(int j = 0; j < blocks_down; j++)
 		{
 			for(int i = 0; i < blocks_across; i++)
@@ -42,7 +41,7 @@ public class GameGrid
 			
 			//After finishing the row, go down a row and restart.
 			current_x = 0f;
-			current_y += GameNumbers.BLOCK_SIZE;
+			current_y -= GameNumbers.BLOCK_SIZE;
 		}				
 	}
 	

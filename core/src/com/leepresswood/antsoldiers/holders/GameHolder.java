@@ -11,14 +11,13 @@ import com.leepresswood.antsoldiers.screens.ScreenGame;
 
 public class GameHolder extends Holder
 {	
-	private OrthographicCamera camera;
-	private final int WORLD_VIEW = 10;
-	private int WORLD_TOTAL_HORIZONTAL;
-	private int WORLD_TOTAL_VERTICAL;
+	public OrthographicCamera camera;
+	public final int WORLD_VIEW = 10;
+	public int WORLD_TOTAL_HORIZONTAL;
+	public int WORLD_TOTAL_VERTICAL;
 		
-	private Ant[] ant;
-	
-	private GameGrid grid;
+	public Ant[] ant;	
+	public GameGrid grid;
 	
 	public GameHolder(ScreenGame screen_game, int level)
 	{		
