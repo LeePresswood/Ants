@@ -37,12 +37,12 @@ public class GameGrid
 			{
 				blocks[j][i] = getGridblockFromType(grid[j][i], index_counter++);
 				blocks[j][i].setBounds(current_x, current_y, 1, 1);
-				current_x += 1.1f;
+				current_x += GameNumbers.BLOCK_SIZE;
 			}	
 			
 			//After finishing the row, go down a row and restart.
 			current_x = 0f;
-			current_y += 1.1f;
+			current_y += GameNumbers.BLOCK_SIZE;
 		}				
 	}
 	
@@ -53,7 +53,7 @@ public class GameGrid
 			case GameNumbers.BLOCK_GROUND_SOLID:				//Solid.
 				return new BlockGroundSolid(counter, type, screen_game.assets.block_textures[type]);
 			default:
-				System.out.println("Error: Unrecognized block type.");
+				System.out.println("Error: Unrecognized block type at value " + counter + ".");
 				return null;
 		}
 	}
