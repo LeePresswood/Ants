@@ -14,6 +14,9 @@ public class Ant extends Sprite
 	
 	public Ant(int index, Texture texture, Vector2 position)
 	{
+		super(texture);
+		setBounds(0, 0, GameNumbers.ANT_SIZE, GameNumbers.ANT_SIZE);
+		
 		this.index = index;
 		this.position = position;
 		
