@@ -71,6 +71,9 @@ public class GameGrid
 
 	public void updateAnt(Ant a, float delta)
 	{//Ant passed into this function. Find its block and call that block's nextPosition().
-		
+		//The floor of the X and Y values for the ants is the block coordinate the ant is on.
+		int x = (int) Math.floor(a.getX());
+		int y = (int) Math.floor(a.getY());
+
 	}
 }
