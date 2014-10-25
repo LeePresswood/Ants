@@ -17,10 +17,10 @@ public class BlockGroundSolid extends GridBlock
 	{
 		/* This is a simple block.
 		 * Current position's Y coordinate should be at the very top of this.
-		 * X will be dependent on the speed's X component. Speed.y is ignored.
+		 * dX will be dependent on the speed component.
 		 */
-		if(ant.right.x >= 1 || ant.left.x <= 0)
-			ant.direction *= -1;
+		if(ant.getY() < this.getY() + this.getHeight())	//Push to top.
+			ant.setY(this.getY() + this.getHeight());
 		
 		ant.setPosition(ant.getX() + speed * ant.direction, ant.getY());
 	}
