@@ -77,7 +77,10 @@ public class GameGrid
 		int y = (int) Math.floor(ant.down.y);
 		
 		//Move the ant based upon that block's rules.
-		Vector2 next = blocks[y][x].nextPosition(ant, GameNumbers.ANT_SPEED * delta);
-		ant.setPosition(next.x, next.y);
+		blocks[y][x].nextPosition(ant, GameNumbers.ANT_SPEED * delta);
+		
+		//Turn around checking.
+		if(ant.right.x >= 1 || ant.left.x <= 0)
+			ant.direction *= -1;
 	}
 }

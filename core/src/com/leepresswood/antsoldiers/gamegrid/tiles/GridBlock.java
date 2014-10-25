@@ -21,5 +21,5 @@ public abstract class GridBlock extends Sprite
 	 * Pass in the bottom-middle of the ant and the speed the ant is traveling.
 	 * this function will return the new location of the ant.
 	 */
-	public abstract Vector2 nextPosition(Ant ant, float antSpeed);
+	public abstract void nextPosition(Ant ant, float antSpeed);
 }

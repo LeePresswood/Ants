@@ -13,7 +13,7 @@ public class BlockGroundSolid extends GridBlock
 	}
 
 	@Override
-	public Vector2 nextPosition(Ant ant, float speed)
+	public void nextPosition(Ant ant, float speed)
 	{
 		/* This is a simple block.
 		 * Current position's Y coordinate should be at the very top of this.
@@ -21,6 +21,7 @@ public class BlockGroundSolid extends GridBlock
 		 */
 		if(ant.right.x >= 1 || ant.left.x <= 0)
 			ant.direction *= -1;
-		return new Vector2(ant.getX() + speed * ant.direction, this.getY() + GameNumbers.BLOCK_SIZE * 0.999f);
+		
+		ant.setPosition(ant.getX() + speed * ant.direction, ant.getY());
 	}
 }
