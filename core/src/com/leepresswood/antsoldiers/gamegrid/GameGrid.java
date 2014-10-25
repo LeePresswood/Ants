@@ -2,7 +2,6 @@
 package com.leepresswood.antsoldiers.gamegrid;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Vector2;
 import com.leepresswood.antsoldiers.ants.Ant;
 import com.leepresswood.antsoldiers.gamegrid.tiles.BlockAir;
 import com.leepresswood.antsoldiers.gamegrid.tiles.BlockGroundSolid;

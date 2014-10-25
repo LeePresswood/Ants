@@ -1,9 +1,7 @@
 package com.leepresswood.antsoldiers.gamegrid.tiles;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.math.Vector2;
 import com.leepresswood.antsoldiers.ants.Ant;
-import com.leepresswood.antsoldiers.management.GameNumbers;
 
 public class BlockGroundSolid extends GridBlock
 {
@@ -18,7 +16,9 @@ public class BlockGroundSolid extends GridBlock
 		/* This is a simple block.
 		 * Current position's Y coordinate should be at the very top of this.
 		 * dX will be dependent on the speed component.
-		 */System.out.println(this.getY() + " " + this.getHeight());
+		 */
+		
+		//==================SOMETHING WRONG HERE======================
 		if(ant.getY() < this.getY() + this.getHeight())	//Push to top.
 		{
 			ant.setY(this.getY() + this.getHeight());
