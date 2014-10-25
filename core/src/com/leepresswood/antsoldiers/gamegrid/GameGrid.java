@@ -4,6 +4,7 @@ package com.leepresswood.antsoldiers.gamegrid;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.leepresswood.antsoldiers.ants.Ant;
+import com.leepresswood.antsoldiers.gamegrid.tiles.BlockAir;
 import com.leepresswood.antsoldiers.gamegrid.tiles.BlockGroundSolid;
 import com.leepresswood.antsoldiers.gamegrid.tiles.GridBlock;
 import com.leepresswood.antsoldiers.management.GameNumbers;
@@ -45,18 +46,6 @@ public class GameGrid
 			current_y -= GameNumbers.BLOCK_SIZE;
 		}				
 	}
-	
-	private GridBlock getGridblockFromType(int type, int counter)
-	{
-		switch(type)
-		{
-			case GameNumbers.BLOCK_GROUND_SOLID:				//Solid.
-				return new BlockGroundSolid(counter, type, screen_game.assets.block_textures[type]);
-			default:
-				System.out.println("Error: Unrecognized block type at value " + counter + ".");
-				return null;
-		}
-	}
 
 	public void render(SpriteBatch batch)
 	{
@@ -92,5 +81,19 @@ public class GameGrid
 		//Turn around checking.
 		//if(ant.right.x >= 1 || ant.left.x <= 0)
 		//	ant.direction *= -1;
+	}
+	
+	private GridBlock getGridblockFromType(int type, int counter)
+	{
+		switch(type)
+		{
+			case GameNumbers.BLOCK_AIR:							//Air.
+				return new BlockAir(counter, type, screen_game.assets.block_textures[type]);
+			case GameNumbers.BLOCK_GROUND_SOLID:				//Solid.
+				return new BlockGroundSolid(counter, type, screen_game.assets.block_textures[type]);
+			default:
+				System.out.println("Error: Unrecognized block type at value " + counter + ".");
+				return null;
+		}
 	}
 }
