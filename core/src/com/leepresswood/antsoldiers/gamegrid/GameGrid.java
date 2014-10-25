@@ -2,6 +2,7 @@
 package com.leepresswood.antsoldiers.gamegrid;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 import com.leepresswood.antsoldiers.ants.Ant;
 import com.leepresswood.antsoldiers.gamegrid.tiles.BlockGroundSolid;
 import com.leepresswood.antsoldiers.gamegrid.tiles.GridBlock;
@@ -69,11 +70,14 @@ public class GameGrid
 		
 	}
 
-	public void updateAnt(Ant a, float delta)
+	public void updateAnt(Ant ant, float delta)
 	{//Ant passed into this function. Find its block and call that block's nextPosition().
 		//The floor of the X and Y values for the ants is the block coordinate the ant is on.
-		int x = (int) Math.floor(a.getX());
-		int y = (int) Math.floor(a.getY());
-
+		int x = (int) Math.floor(ant.getX());
+		int y = (int) Math.floor(ant.getY());
+		System.out.println(x + ", " + y + ": " + ant);
+		//Move the ant based upon that block's rules.
+		Vector2 next = blocks[y][x].nextPosition(ant.down, GameNumbers.ANT_SPEED * delta);
+		ant.setPosition(next.x, next.y);		
 	}
 }
