@@ -73,11 +73,11 @@ public class GameGrid
 	public void updateAnt(Ant ant, float delta)
 	{//Ant passed into this function. Find its block and call that block's nextPosition().
 		//The floor of the X and Y values for the ants is the block coordinate the ant is on.
-		int x = (int) Math.floor(ant.getX());
-		int y = (int) Math.floor(ant.getY());
-		System.out.println(x + ", " + y + ": " + ant);
+		int x = (int) Math.floor(ant.down.x);
+		int y = (int) Math.floor(ant.down.y);
+		
 		//Move the ant based upon that block's rules.
-		Vector2 next = blocks[y][x].nextPosition(ant.down, GameNumbers.ANT_SPEED * delta);
-		ant.setPosition(next.x, next.y);		
+		Vector2 next = blocks[y][x].nextPosition(ant, GameNumbers.ANT_SPEED * delta);
+		ant.setPosition(next.x, next.y);
 	}
 }

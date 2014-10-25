@@ -18,5 +18,5 @@ public final class GameNumbers
 	//Ant Numbers
 	public static final int ANTS_NUMBER_SPAWNED = 1;
 	public static final float ANT_SIZE = 0.1f;
-	public static final float ANT_SPEED = 0.1f;
+	public static final float ANT_SPEED = 1f;
 }

@@ -7,10 +7,9 @@ import com.leepresswood.antsoldiers.management.GameNumbers;
 
 public class Ant extends Sprite
 {
-	public int index;
-	public Vector2 position;
-	
+	public int index;	
 	public Vector2 up, down, left, right;
+	public int direction = 1;
 	
 	public Ant(int index, Texture texture, Vector2 position)
 	{
@@ -18,28 +17,26 @@ public class Ant extends Sprite
 		setBounds(0, 0, GameNumbers.ANT_SIZE, GameNumbers.ANT_SIZE);
 		
 		this.index = index;
-		this.position = position;
 		
 		up = new Vector2();
 		down = new Vector2();
 		left = new Vector2();
 		right = new Vector2();	
-		newPositions();
 	}
 
 	private void newPositions()
 	{//All vectors related to the middle of that side.		
-		up.x = position.x + GameNumbers.ANT_SIZE / 2f;
-		up.y = position.y + GameNumbers.ANT_SIZE;
+		up.x = this.getX() + GameNumbers.ANT_SIZE / 2f;
+		up.y = this.getY() + GameNumbers.ANT_SIZE;
 		
-		down.x = position.x + GameNumbers.ANT_SIZE / 2f;
-		down.y = position.y;
+		down.x = this.getX() + GameNumbers.ANT_SIZE / 2f;
+		down.y = this.getY();
 		
-		left.x = position.x;
-		left.y = position.y + GameNumbers.ANT_SIZE / 2f;
+		left.x = this.getX();
+		left.y = this.getY() + GameNumbers.ANT_SIZE / 2f;
 		
-		right.x = position.x + GameNumbers.ANT_SIZE;
-		right.y = position.y + GameNumbers.ANT_SIZE / 2f;
+		right.x = this.getX() + GameNumbers.ANT_SIZE;
+		right.y = this.getY() + GameNumbers.ANT_SIZE / 2f;
 	}
 	
 	public void update(float delta)

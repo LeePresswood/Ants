@@ -3,6 +3,7 @@ package com.leepresswood.antsoldiers.gamegrid.tiles;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
+import com.leepresswood.antsoldiers.ants.Ant;
 
 public abstract class GridBlock extends Sprite
 {
@@ -20,5 +21,5 @@ public abstract class GridBlock extends Sprite
 	 * Pass in the bottom-middle of the ant and the speed the ant is traveling.
 	 * this function will return the new location of the ant.
 	 */
-	public abstract Vector2 nextPosition(Vector2 current_position, float antSpeed);
+	public abstract Vector2 nextPosition(Ant ant, float antSpeed);
 }
