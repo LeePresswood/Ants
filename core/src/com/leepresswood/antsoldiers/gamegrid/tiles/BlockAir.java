@@ -16,7 +16,7 @@ public class BlockAir extends GridBlock
 		/* This is an air block.
 		 * Ant's current Y coordinate should fall each update. This will eventually lead to a walkable block.
 		 * X coordinate should not change.
-		 */		
+		 */
 		ant.setPosition(ant.getX(), ant.getY() - speed);
 	}
 }

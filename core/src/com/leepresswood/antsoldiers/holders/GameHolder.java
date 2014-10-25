@@ -34,7 +34,7 @@ public class GameHolder extends Holder
 		//Visible objects will be the ants and the grid (with its items).
 		ants = new Ant[GameNumbers.ANTS_NUMBER_SPAWNED];
 		for(int i = 0; i < GameNumbers.ANTS_NUMBER_SPAWNED; i++)
-			ants[i] = new Ant(i, screen_game.assets.texture_ant, new Vector2(0, 0));
+			ants[i] = new Ant(i, screen_game.assets.texture_ant, new Vector2(1, 3));
 		grid = new GameGrid(screen_game, lp.grid);
 	}
 

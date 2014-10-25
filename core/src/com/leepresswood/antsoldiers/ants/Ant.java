@@ -14,14 +14,15 @@ public class Ant extends Sprite
 	public Ant(int index, Texture texture, Vector2 position)
 	{
 		super(texture);
-		setBounds(0, 0, GameNumbers.ANT_SIZE, GameNumbers.ANT_SIZE);
+		setBounds(position.x, position.y, GameNumbers.ANT_SIZE, GameNumbers.ANT_SIZE);
 		
 		this.index = index;
 		
 		up = new Vector2();
 		down = new Vector2();
 		left = new Vector2();
-		right = new Vector2();	
+		right = new Vector2();
+		newPositions();
 	}
 
 	private void newPositions()
