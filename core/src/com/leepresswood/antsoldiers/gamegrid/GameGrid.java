@@ -95,6 +95,18 @@ public class GameGrid
 				return new BlockAir(counter, type, screen_game.assets.block_textures[type]);
 			case GameNumbers.BLOCK_GROUND_SOLID:				//Solid.
 				return new BlockGroundSolid(counter, type, screen_game.assets.block_textures[type]);
+			case GameNumbers.BLOCK_GROUND_SLOPED_RIGHT:
+				return null;
+			case GameNumbers.BLOCK_GROUND_SLOPED_LEFT:
+				return null;
+			case GameNumbers.BLOCK_CEILING_SLOPED_RIGHT:
+				return null;
+			case GameNumbers.BLOCK_CEILING_SLOPED_LEFT:
+				return null;
+			case GameNumbers.BLOCK_SPAWNER:
+				return null;
+			case GameNumbers.BLOCK_GOAL:
+				return null;
 			default:
 				System.out.println("Error: Unrecognized block type at value " + counter + ".");
 				return null;
