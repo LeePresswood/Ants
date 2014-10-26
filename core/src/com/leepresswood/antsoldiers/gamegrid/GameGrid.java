@@ -75,18 +75,32 @@ public class GameGrid
 	
 	private void checkTurnAround(int x, int y, Ant ant)
 	{
+		//Make sure we stay in the borders.
+		if(x >= blocks_across)
+			x = blocks_across - 1;
+		else if(x < 0)
+			x = 0;
+		if(y >= blocks_down)
+			y = blocks_down - 1;
+		else if(y < 0)
+			y = 0;
+		
 		/* Logic for Turn-Around Checking:
 		 * Get the ant's direction.
 		 * Check the ant's right/left border with the left/right side of the next block.
 		 * If touching, turn around. 
 		 * You don't have to worry about out-of-bounds cases. Every level will have a full box around it.
 		 */
-		if(ant.direction == 1)	//Right
-			if(ant.right.x >= blocks[y + 1][x + 1].getX() && blocks[y + 1][x + 1].type == 1)
+		if(ant.direction == 1)
+		{//Right
+			if(ant.right.x >= blocks[y + 1][x + 1].getX() && GridBlock.isSolid(blocks[y + 1][x + 1].type, true))
 				ant.direction *= -1;				
-		else							//Left
+		}
+		else
+		{//Left
 			if(ant.left.x <= blocks[y + 1][x - 1].getX() + blocks[y + 1][x - 1].getWidth() && blocks[y + 1][x - 1].type == 1)
 				ant.direction *= -1;
+		}
 	}
 	
 	private GridBlock getGridblockFromType(int type, int counter)
@@ -110,7 +124,7 @@ public class GameGrid
 			case GameNumbers.BLOCK_GOAL:
 				return null;
 			default:
-				System.out.println("Error: Unrecognized block type at value " + counter + ".");
+				System.out.println("Error: Unrecognized block type \"" + type + "\" at value " + counter + ".");
 				return null;
 		}
 	}
