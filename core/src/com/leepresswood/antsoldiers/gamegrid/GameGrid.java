@@ -55,7 +55,9 @@ public class GameGrid
 
 	public void update(float delta)
 	{//Update tiles here. Good for animated tiles.
-		
+		for(int j = 0; j < blocks_down; j++)
+			for(int i = 0; i < blocks_across; i++)
+				blocks[j][i].update(delta);
 	}
 
 	public void updateAnt(Ant ant, float delta)
@@ -88,12 +90,12 @@ public class GameGrid
 	}
 	
 	private GridBlock getGridblockFromType(int type, int counter)
-	{
+	{//This logic is put down here to make the block creation neater.
 		switch(type)
 		{
-			case GameNumbers.BLOCK_AIR:							//Air.
+			case GameNumbers.BLOCK_AIR:
 				return new BlockAir(counter, type, screen_game.assets.block_textures[type]);
-			case GameNumbers.BLOCK_GROUND_SOLID:				//Solid.
+			case GameNumbers.BLOCK_GROUND_SOLID:
 				return new BlockGroundSolid(counter, type, screen_game.assets.block_textures[type]);
 			case GameNumbers.BLOCK_GROUND_SLOPED_RIGHT:
 				return null;
