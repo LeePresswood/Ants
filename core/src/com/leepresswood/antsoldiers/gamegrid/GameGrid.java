@@ -77,9 +77,24 @@ public class GameGrid
 		//Move the ant based upon that block's rules.
 		blocks[y][x].nextPosition(ant, GameNumbers.ANT_SPEED * delta);
 		
-		//Turn around checking.
-		//if(ant.right.x >= 1 || ant.left.x <= 0)
-		//	ant.direction *= -1;
+		/* Logic for Turn-Around Checking:
+		 * Get the ant's direction.
+		 * Check the ant's right/left border with the left/right side of the next block.
+		 * If touching, turn around. 
+		 * You don't have to worry about out-of-bounds cases. Every level will have a full box around it.
+		 */
+		if(ant.direction == 1)
+		{//Right
+			if(ant.right.x >= blocks[y + 1][x + 1].getX() && blocks[y + 1][x + 1].type == 1)
+			{
+				ant.direction *= -1;				
+			}
+		}
+		else
+		{//Left
+			if(ant.left.x <= blocks[y + 1][x - 1].getX() + blocks[y + 1][x - 1].getWidth() && blocks[y + 1][x - 1].type == 1)
+				ant.direction *= -1;
+		}
 	}
 	
 	private GridBlock getGridblockFromType(int type, int counter)
