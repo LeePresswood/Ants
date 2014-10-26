@@ -79,18 +79,12 @@ public class GameGrid
 		 * If touching, turn around. 
 		 * You don't have to worry about out-of-bounds cases. Every level will have a full box around it.
 		 */
-		if(ant.direction == 1)
-		{//Right
+		if(ant.direction == 1)	//Right
 			if(ant.right.x >= blocks[y + 1][x + 1].getX() && blocks[y + 1][x + 1].type == 1)
-			{
 				ant.direction *= -1;				
-			}
-		}
-		else
-		{//Left
+		else							//Left
 			if(ant.left.x <= blocks[y + 1][x - 1].getX() + blocks[y + 1][x - 1].getWidth() && blocks[y + 1][x - 1].type == 1)
 				ant.direction *= -1;
-		}
 	}
 	
 	private GridBlock getGridblockFromType(int type, int counter)
