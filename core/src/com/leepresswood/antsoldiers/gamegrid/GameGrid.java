@@ -77,6 +77,11 @@ public class GameGrid
 		//Move the ant based upon that block's rules.
 		blocks[y][x].nextPosition(ant, GameNumbers.ANT_SPEED * delta);
 		
+		checkTurnAround(x, y, ant);
+	}
+	
+	private void checkTurnAround(int x, int y, Ant ant)
+	{
 		/* Logic for Turn-Around Checking:
 		 * Get the ant's direction.
 		 * Check the ant's right/left border with the left/right side of the next block.
