@@ -11,11 +11,10 @@ import com.leepresswood.antsoldiers.screens.ScreenGame;
 
 public class GameGrid
 {
-	public GridBlock[][] blocks;
-	private int index_counter;
-	
 	private ScreenGame screen_game;
 	
+	private int index_counter;
+	private GridBlock[][] blocks;
 	private int blocks_down;
 	private int blocks_across;	
 	
@@ -77,8 +76,8 @@ public class GameGrid
 	{
 		/* Logic for Turn-Around Checking:
 		 * Get the ant's direction.
-		 * Check the ant's right/left border with the left/right side of the next block.
-		 * If touching, turn around. 
+		 * Check the ant's right/left border with the left/right side of the next block respectively.
+		 * If touching, turn around.
 		 * You don't have to worry about out-of-bounds cases. Every level will have a full box around it.
 		 */
 		if(ant.direction == 1)

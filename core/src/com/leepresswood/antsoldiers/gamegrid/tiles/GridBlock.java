@@ -29,7 +29,7 @@ public abstract class GridBlock extends Sprite
 	}
 	
 	public static boolean isSolid(int type, boolean is_left_of_block)
-	{//Call this in the turnaround logic. It determines if you can walk through this block or not.
+	{//Call this in the turn around logic. It determines if you can walk through this block or not.
 		switch(type)
 		{		
 			case GameNumbers.BLOCK_AIR:
