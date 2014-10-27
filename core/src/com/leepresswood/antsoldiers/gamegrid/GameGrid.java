@@ -94,12 +94,18 @@ public class GameGrid
 		if(ant.direction == 1)
 		{//Right
 			if(ant.right.x >= blocks[y + 1][x + 1].getX() && GridBlock.isSolid(blocks[y + 1][x + 1].type, true))
+			{
+				ant.setPosition(blocks[y + 1][x + 1].getX() - ant.getWidth(), ant.getY());
 				ant.direction *= -1;				
+			}
 		}
 		else
 		{//Left
 			if(ant.left.x <= blocks[y + 1][x - 1].getX() + blocks[y + 1][x - 1].getWidth() && GridBlock.isSolid(blocks[y + 1][x - 1].type, false))
+			{
+				ant.setPosition(blocks[y + 1][x - 1].getX() + blocks[y + 1][x - 1].getWidth(), ant.getY());
 				ant.direction *= -1;
+			}
 		}
 	}
 	

@@ -114,10 +114,10 @@ public class GameHolder extends Holder
 		if(spawn_timer >= GameNumbers.ANTS_SPAWN_DELAY)
 		{
 			spawn_timer -= GameNumbers.ANTS_SPAWN_DELAY;
-			ants.add(new Ant(number_spawned++, screen_game.assets.texture_ant, new Vector2(1, 3)));
+			ants.add(new Ant(number_spawned, screen_game.assets.texture_ant, new Vector2(1, 3)));
 			
 			//If we hit the max number spawned, no more spawning is necessary.
-			if(number_spawned == GameNumbers.ANTS_NUMBER_SPAWNED)
+			if(number_spawned++ == GameNumbers.ANTS_NUMBER_SPAWNED)
 				is_spawning = false;
 		}
 	}
