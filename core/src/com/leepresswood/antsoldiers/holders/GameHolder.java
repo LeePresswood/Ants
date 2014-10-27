@@ -1,5 +1,7 @@
 package com.leepresswood.antsoldiers.holders;
 
+import java.util.ArrayList;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Vector2;
@@ -11,16 +13,23 @@ import com.leepresswood.antsoldiers.screens.ScreenGame;
 
 public class GameHolder extends Holder
 {	
+	public ScreenGame screen_game;
 	public OrthographicCamera camera;
 	public final int WORLD_VIEW = 10;
 	public int WORLD_TOTAL_HORIZONTAL;
 	public int WORLD_TOTAL_VERTICAL;
 		
-	public Ant[] ants;	
+	public ArrayList<Ant> ants;	
 	public GameGrid grid;
+	
+	private boolean is_spawning;
+	private int number_spawned;
+	private float spawn_timer;
 	
 	public GameHolder(ScreenGame screen_game, int level)
 	{		
+		this.screen_game = screen_game;
+		
 		//Use the level parser to determine how many total squares across and down our world has.
 		LevelParser lp = new LevelParser(level);
 		WORLD_TOTAL_HORIZONTAL = lp.width;
@@ -32,10 +41,13 @@ public class GameHolder extends Holder
 		camera.update();
 		
 		//Visible objects will be the ants and the grid (with its items).
-		ants = new Ant[GameNumbers.ANTS_NUMBER_SPAWNED];
-		for(int i = 0; i < GameNumbers.ANTS_NUMBER_SPAWNED; i++)
-			ants[i] = new Ant(i, screen_game.assets.texture_ant, new Vector2(1, 3));
+		ants = new ArrayList<Ant>();		
 		grid = new GameGrid(screen_game, lp.grid);
+		
+		//The following variables deal with spawning
+		is_spawning = true;
+		number_spawned = 1;
+		spawn_timer = 0f;
 	}
 
 	public void scroll(float delta_x, float delta_y)
@@ -69,6 +81,9 @@ public class GameHolder extends Holder
 	@Override
 	public void update(float delta)
 	{
+		if(is_spawning)
+			antSpawn(delta);
+		
 		grid.update(delta);
 		
 		//Every ant needs to be updated for its position.
@@ -88,5 +103,22 @@ public class GameHolder extends Holder
 			for(Ant a : ants)
 				a.draw(batch);			
 		batch.end();
+	}
+	
+	private void antSpawn(float delta)
+	{//This is called while all the ants have not yet been spawned.
+		//Change the spawn timer
+		spawn_timer += delta;
+		
+		//If this timer is greater that the time between ant spawns, spawn an ant.
+		if(spawn_timer >= GameNumbers.ANTS_SPAWN_DELAY)
+		{
+			spawn_timer -= GameNumbers.ANTS_SPAWN_DELAY;
+			ants.add(new Ant(number_spawned++, screen_game.assets.texture_ant, new Vector2(1, 3)));
+			
+			//If we hit the max number spawned, no more spawning is necessary.
+			if(number_spawned == GameNumbers.ANTS_NUMBER_SPAWNED)
+				is_spawning = false;
+		}
 	}
 }

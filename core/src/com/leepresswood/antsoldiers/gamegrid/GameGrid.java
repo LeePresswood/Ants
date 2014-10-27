@@ -98,7 +98,7 @@ public class GameGrid
 		}
 		else
 		{//Left
-			if(ant.left.x <= blocks[y + 1][x - 1].getX() + blocks[y + 1][x - 1].getWidth() && blocks[y + 1][x - 1].type == 1)
+			if(ant.left.x <= blocks[y + 1][x - 1].getX() + blocks[y + 1][x - 1].getWidth() && GridBlock.isSolid(blocks[y + 1][x - 1].type, false))
 				ant.direction *= -1;
 		}
 	}
