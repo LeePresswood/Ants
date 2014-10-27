@@ -75,16 +75,6 @@ public class GameGrid
 	
 	private void checkTurnAround(int x, int y, Ant ant)
 	{
-		//Make sure we stay in the borders.
-		if(x >= blocks_across)
-			x = blocks_across - 1;
-		else if(x < 0)
-			x = 0;
-		if(y >= blocks_down)
-			y = blocks_down - 1;
-		else if(y < 0)
-			y = 0;
-		
 		/* Logic for Turn-Around Checking:
 		 * Get the ant's direction.
 		 * Check the ant's right/left border with the left/right side of the next block.
