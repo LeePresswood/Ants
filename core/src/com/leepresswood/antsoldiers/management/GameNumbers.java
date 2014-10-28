@@ -17,7 +17,7 @@ public final class GameNumbers
 	public static final float BLOCK_SIZE = 1;
 	
 	//Game Constants
-	public static final float GRAVITY = 0.3f;
+	public static final float GRAVITY = -0.3f;
 	
 	//Ant Numbers
 	public static final int ANTS_NUMBER_SPAWNED = 10;

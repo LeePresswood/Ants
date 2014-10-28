@@ -11,12 +11,16 @@ public class Ant extends Sprite
 	public Vector2 up, down, left, right;
 	public int direction = 1;
 	
+	public Vector2 angle;
+	
 	public Ant(int index, Texture texture, Vector2 position)
 	{
 		super(texture);
 		setBounds(position.x, position.y, GameNumbers.ANT_SIZE, GameNumbers.ANT_SIZE);
 		
 		this.index = index;
+		
+		angle = new Vector2(0, 0);
 		
 		up = new Vector2();
 		down = new Vector2();
