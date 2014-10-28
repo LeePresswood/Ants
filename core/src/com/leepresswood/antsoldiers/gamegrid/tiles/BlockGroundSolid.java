@@ -17,6 +17,6 @@ public class BlockGroundSolid extends GridBlock
 		 * Current position's Y coordinate should be at the very top of this.
 		 * dX will be dependent on the speed component.
 		 */		
-		ant.setPosition(ant.getX() + speed * ant.direction, ant.getY());
+		ant.setPosition(ant.getX() + speed * ant.direction, this.getY() + this.getHeight());//ant.getY());
 	}
 }
