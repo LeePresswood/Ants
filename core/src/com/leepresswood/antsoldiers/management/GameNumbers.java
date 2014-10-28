@@ -16,6 +16,9 @@ public final class GameNumbers
 	//Block Numbers
 	public static final float BLOCK_SIZE = 1;
 	
+	//Game Constants
+	public static final float GRAVITY = 0.3f;
+	
 	//Ant Numbers
 	public static final int ANTS_NUMBER_SPAWNED = 10;
 	public static final float ANTS_SPAWN_DELAY = 0.3f;
