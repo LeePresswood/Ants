@@ -88,10 +88,7 @@ public class GameHolder extends Holder
 		
 		//Every ant needs to be updated for its position.
 		for(Ant a : ants)
-		{
 			grid.updateAnt(a, delta);
-			a.update(delta);
-		}
 	}
 
 	@Override

@@ -2,6 +2,7 @@ package com.leepresswood.antsoldiers.gamegrid.tiles;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.leepresswood.antsoldiers.ants.Ant;
+import com.leepresswood.antsoldiers.management.GameNumbers;
 
 public class BlockGroundSolid extends GridBlock
 {
@@ -15,8 +16,19 @@ public class BlockGroundSolid extends GridBlock
 	{
 		/* This is a simple block.
 		 * Current position's Y coordinate should be at the very top of this.
-		 * dX will be dependent on the speed component.
-		 */		
+		 * dX will be the speed component.
+		 */
+		ant.angle.x = GameNumbers.ANT_SPEED;
+		ant.angle.y = 0f;
+		ant.update(delta);
+		
+		//Ant needs to be on top of this block. Be sure to reset the position again.
+		if(ant.getY() < this.getY() + this.getHeight())
+		{
+			System.out.println("Ant: " + ant.getY() + " : Block Top: " + (this.getY() ));
+			ant.setY(this.getY() + this.getHeight());
+			ant.newPositions();
+		}
 		//ant.setPosition(ant.getX() + speed * ant.direction, this.getY() + this.getHeight());//ant.getY());
 	}
 }

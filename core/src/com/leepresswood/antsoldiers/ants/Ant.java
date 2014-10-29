@@ -29,7 +29,7 @@ public class Ant extends Sprite
 		newPositions();
 	}
 
-	private void newPositions()
+	public void newPositions()
 	{//All vectors related to the middle of that side.		
 		up.x = this.getX() + GameNumbers.ANT_SIZE / 2f;
 		up.y = this.getY() + GameNumbers.ANT_SIZE;
@@ -49,10 +49,7 @@ public class Ant extends Sprite
 		//Animation.
 		
 		
+		//Repositioning.
 		translate((float) (delta * angle.len() * Math.cos(angle.angleRad())), (float) (delta * angle.len() * Math.sin(angle.angleRad())));
-
-		
-		//Positioning.
-		newPositions();
 	}
 }
