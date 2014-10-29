@@ -80,18 +80,20 @@ public class GameGrid
 		
 		if(ant.direction == 1)
 		{//Right
-			if(ant.right.x >= blocks[y + 1][x + 1].getX() && blocks[y + 1][x + 1].type != GameNumbers.BLOCK_AIR)
+			if(ant.right.x >= blocks[y + 1][x + 1].getX() && blocks[y + 1][x + 1].type != GameNumbers.BLOCK_AIR && x < screen_game.game_holder.WORLD_TOTAL_HORIZONTAL - 1)
 			{
 				override = true;
 				blocks[y + 1][x + 1].nextPosition(ant, delta);
+				System.out.println("here");
 			}
 		}
 		else
 		{//Left
-			if(ant.left.x <= blocks[y + 1][x - 1].getX() + blocks[y + 1][x - 1].getWidth() && blocks[y + 1][x - 1].type != GameNumbers.BLOCK_AIR)
+			if(ant.left.x <= blocks[y + 1][x - 1].getX() + blocks[y + 1][x - 1].getWidth() && blocks[y + 1][x - 1].type != GameNumbers.BLOCK_AIR && x > 1)
 			{
 				override = true;
 				blocks[y + 1][x - 1].nextPosition(ant, delta);
+				System.out.println("here");
 			}
 		}
 		
