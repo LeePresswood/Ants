@@ -66,11 +66,8 @@ public class GameGrid
 		int x = (int) Math.floor(ant.down.x);
 		int y = (int) Math.floor(ant.down.y);
 		
-		//We need to check in front of the ant to see if another set of rules overrides the ground's rules.
-		boolean override = doForwardBlock(x, y, delta, ant);
-		
 		//Move the ant based upon that block's rules.
-		if(!override)
+		if(!doForwardBlock(x, y, delta, ant))
 			blocks[y][x].nextPosition(ant, delta);
 		
 		//Turning around happens when left or right of the ant is a wall.
@@ -78,14 +75,15 @@ public class GameGrid
 	}
 	
 	private boolean doForwardBlock(int x, int y, float delta, Ant ant)
-	{
+	{//We need to check in front of the ant to see if another set of rules overrides the ground's rules.		
 		boolean override = false;
+		
 		if(ant.direction == 1)
 		{//Right
 			if(ant.right.x >= blocks[y + 1][x + 1].getX() && blocks[y + 1][x + 1].type != GameNumbers.BLOCK_AIR)
 			{
 				override = true;
-				
+				blocks[y + 1][x + 1].nextPosition(ant, delta);
 			}
 		}
 		else
@@ -93,7 +91,7 @@ public class GameGrid
 			if(ant.left.x <= blocks[y + 1][x - 1].getX() + blocks[y + 1][x - 1].getWidth() && blocks[y + 1][x - 1].type != GameNumbers.BLOCK_AIR)
 			{
 				override = true;
-				
+				blocks[y + 1][x - 1].nextPosition(ant, delta);
 			}
 		}
 		
@@ -114,7 +112,7 @@ public class GameGrid
 			{
 				ant.setPosition(blocks[y + 1][x + 1].getX() - ant.getWidth(), ant.getY());
 				ant.angle.x *= -1f;
-				ant.angle.y = 0f;
+				//ant.angle.y = 0f;
 				ant.direction *= -1;
 			}
 		}
@@ -124,10 +122,12 @@ public class GameGrid
 			{
 				ant.setPosition(blocks[y + 1][x - 1].getX() + blocks[y + 1][x - 1].getWidth(), ant.getY());
 				ant.angle.x *= -1f;
-				ant.angle.y = 0f;
+				//ant.angle.y = 0f;
 				ant.direction *= -1;
 			}
 		}
+		
+		//Do ceiling logic here ************************************************
 	}
 	
 	private GridBlock getGridblockFromType(int type, int counter)
