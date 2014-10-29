@@ -18,14 +18,13 @@ public class BlockGroundSolid extends GridBlock
 		 * Current position's Y coordinate should be at the very top of this.
 		 * dX will be the speed component.
 		 */
-		ant.angle.x = GameNumbers.ANT_SPEED;
+		ant.angle.x = ant.direction * GameNumbers.ANT_SPEED;
 		ant.angle.y = 0f;
 		ant.update(delta);
 		
 		//Ant needs to be on top of this block. Be sure to reset the position again.
 		if(ant.getY() < this.getY() + this.getHeight())
 		{
-			System.out.println("Ant: " + ant.getY() + " : Block Top: " + (this.getY() ));
 			ant.setY(this.getY() + this.getHeight());
 			ant.newPositions();
 		}

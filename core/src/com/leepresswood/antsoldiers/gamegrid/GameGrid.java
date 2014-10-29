@@ -29,7 +29,7 @@ public class GameGrid
 		blocks = new GridBlock[blocks_down][blocks_across];
 		
 		float current_x = 0f;
-		float current_y = (blocks_down - 1) * GameNumbers.BLOCK_SIZE;		
+		float current_y = 0f;		
 		for(int j = 0; j < blocks_down; j++)
 		{
 			for(int i = 0; i < blocks_across; i++)
@@ -41,7 +41,7 @@ public class GameGrid
 			
 			//After finishing the row, go down a row and restart.
 			current_x = 0f;
-			current_y -= GameNumbers.BLOCK_SIZE;
+			current_y += GameNumbers.BLOCK_SIZE;
 		}				
 	}
 
@@ -65,6 +65,8 @@ public class GameGrid
 		int x = (int) Math.floor(ant.down.x);
 		int y = (int) Math.floor(ant.down.y);
 		
+		
+		
 		//Move the ant based upon that block's rules.
 		blocks[y][x].nextPosition(ant, delta);
 		
@@ -85,7 +87,9 @@ public class GameGrid
 			if(ant.right.x >= blocks[y + 1][x + 1].getX() && GridBlock.isSolid(blocks[y + 1][x + 1].type, true))
 			{
 				ant.setPosition(blocks[y + 1][x + 1].getX() - ant.getWidth(), ant.getY());
-				ant.direction *= -1;				
+				ant.angle.x *= -1f;
+				ant.angle.y = 0f;
+				ant.direction *= -1;
 			}
 		}
 		else
@@ -93,6 +97,8 @@ public class GameGrid
 			if(ant.left.x <= blocks[y + 1][x - 1].getX() + blocks[y + 1][x - 1].getWidth() && GridBlock.isSolid(blocks[y + 1][x - 1].type, false))
 			{
 				ant.setPosition(blocks[y + 1][x - 1].getX() + blocks[y + 1][x - 1].getWidth(), ant.getY());
+				ant.angle.x *= -1f;
+				ant.angle.y = 0f;
 				ant.direction *= -1;
 			}
 		}
