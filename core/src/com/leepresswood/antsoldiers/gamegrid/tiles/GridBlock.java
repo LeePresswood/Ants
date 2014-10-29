@@ -37,13 +37,13 @@ public abstract class GridBlock extends Sprite
 			case GameNumbers.BLOCK_GROUND_SOLID:
 				return true;
 			case GameNumbers.BLOCK_GROUND_SLOPED_RIGHT:
-				return is_left_of_block;
+				return !is_left_of_block;
 			case GameNumbers.BLOCK_GROUND_SLOPED_LEFT:
-				return !is_left_of_block;
-			case GameNumbers.BLOCK_CEILING_SLOPED_RIGHT:
 				return is_left_of_block;
-			case GameNumbers.BLOCK_CEILING_SLOPED_LEFT:
+			case GameNumbers.BLOCK_CEILING_SLOPED_RIGHT:
 				return !is_left_of_block;
+			case GameNumbers.BLOCK_CEILING_SLOPED_LEFT:
+				return is_left_of_block;
 			case GameNumbers.BLOCK_SPAWNER:
 				return false;
 			case GameNumbers.BLOCK_GOAL:
