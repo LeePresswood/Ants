@@ -70,9 +70,8 @@ public class BlockDiagonal extends GridBlock
 	
 	private float getYFromX(float x)
 	{
-		float y = getY();
-		
-		return y;
+		float slope = (end.y - start.y) / (end.x - start.x);
+		return slope * (x - start.x);
 	}
 
 	@Override
@@ -96,6 +95,9 @@ public class BlockDiagonal extends GridBlock
 		}
 		else
 		{//Bottom collision
+			//Make sure we're above the diagonal.
+			
+			
 			//Change the vector
 			ant.angle = new Vector2((end.x - start.x) * GameNumbers.ANT_SPEED * ant.direction, (end.y - start.y) * GameNumbers.ANT_SPEED * ant.direction);
 			ant.update(delta);

@@ -15,7 +15,7 @@ public class GameHolder extends Holder
 {	
 	public ScreenGame screen_game;
 	public OrthographicCamera camera;
-	public final int WORLD_VIEW = 10;
+	public final int WORLD_VIEW = 20;
 	public int WORLD_TOTAL_HORIZONTAL;
 	public int WORLD_TOTAL_VERTICAL;
 		

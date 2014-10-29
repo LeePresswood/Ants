@@ -84,7 +84,6 @@ public class GameGrid
 			{
 				override = true;
 				blocks[y + 1][x + 1].nextPosition(ant, delta);
-				System.out.println("here");
 			}
 		}
 		else
@@ -93,7 +92,6 @@ public class GameGrid
 			{
 				override = true;
 				blocks[y + 1][x - 1].nextPosition(ant, delta);
-				System.out.println("here");
 			}
 		}
 		
@@ -102,17 +100,30 @@ public class GameGrid
 	
 	private void checkTurnAround(int x, int y, Ant ant)
 	{
+		//Do ceiling logic
+		if(ant.up.y >= blocks[y + 1][x].getY() && GridBlock.isSolidAtBottom(blocks[y + 1][x].type))
+		{
+			ant.setPosition(ant.getX(), blocks[y + 1][x].getY() - ant.getHeight());
+			//ant.angle.x *= 0.85f;
+			ant.angle.y = 0f;
+			ant.direction *= -1;
+		}		
+		
 		/* Logic for Turn-Around Checking:
 		 * Get the ant's direction.
 		 * Check the ant's right/left border with the left/right side of the next block respectively.
 		 * If touching, turn around.
 		 * You don't have to worry about out-of-bounds cases. Every level will have a full box around it.
-		 */
+		 */		
 		if(ant.direction == 1)
 		{//Right
-			if(ant.right.x >= blocks[y + 1][x + 1].getX() && GridBlock.isSolid(blocks[y + 1][x + 1].type, true))
+			int next = y + 1;
+			if(ant.up.y <= blocks[y][x].getY() + blocks[y][x].getHeight())
+				next--;
+			
+			if(ant.right.x >= blocks[next][x + 1].getX() && GridBlock.isSolid(blocks[next][x + 1].type, true))
 			{
-				ant.setPosition(blocks[y + 1][x + 1].getX() - ant.getWidth(), ant.getY());
+				ant.setPosition(blocks[next][x + 1].getX() - ant.getWidth(), ant.getY());
 				ant.angle.x *= -1f;
 				ant.angle.y = 0f;
 				ant.direction *= -1;
@@ -120,16 +131,18 @@ public class GameGrid
 		}
 		else
 		{//Left
-			if(ant.left.x <= blocks[y + 1][x - 1].getX() + blocks[y + 1][x - 1].getWidth() && GridBlock.isSolid(blocks[y + 1][x - 1].type, false))
+			int next = y + 1;
+			if(ant.up.y <= blocks[y][x].getY() + blocks[y][x].getHeight())
+				next--;
+			
+			if(ant.left.x <= blocks[next][x - 1].getX() + blocks[next][x - 1].getWidth() && GridBlock.isSolid(blocks[next][x - 1].type, false))
 			{
-				ant.setPosition(blocks[y + 1][x - 1].getX() + blocks[y + 1][x - 1].getWidth(), ant.getY());
+				ant.setPosition(blocks[next][x - 1].getX() + blocks[next][x - 1].getWidth(), ant.getY());
 				ant.angle.x *= -1f;
 				ant.angle.y = 0f;
 				ant.direction *= -1;
 			}
 		}
-		
-		//Do ceiling logic here ************************************************
 	}
 	
 	private GridBlock getGridblockFromType(int type, int counter)

@@ -24,7 +24,9 @@ public class BlockGroundSolid extends GridBlock
 		
 		//Ant needs to be on top of this block. Be sure to reset the position again.
 		if(ant.getY() < this.getY() + this.getHeight())
-			ant.setY(this.getY() + this.getHeight());
+		{
+			//ant.setY(this.getY() + this.getHeight());
+		}
 		
 		ant.newPositions();
 	}

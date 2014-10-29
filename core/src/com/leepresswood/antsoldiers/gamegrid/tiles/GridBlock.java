@@ -53,4 +53,30 @@ public abstract class GridBlock extends Sprite
 				return false;
 		}
 	}
+	
+	public static boolean isSolidAtBottom(int type)
+	{//Call this for the ceiling logic.
+		switch(type)
+		{		
+			case GameNumbers.BLOCK_AIR:
+				return false;
+			case GameNumbers.BLOCK_GROUND_SOLID:
+				return true;
+			case GameNumbers.BLOCK_GROUND_SLOPED_RIGHT:
+				return true;
+			case GameNumbers.BLOCK_GROUND_SLOPED_LEFT:
+				return true;
+			case GameNumbers.BLOCK_CEILING_SLOPED_RIGHT:
+				return false;
+			case GameNumbers.BLOCK_CEILING_SLOPED_LEFT:
+				return false;
+			case GameNumbers.BLOCK_SPAWNER:
+				return false;
+			case GameNumbers.BLOCK_GOAL:
+				return false;
+			default:
+				System.out.println("Error: Type " + type + " is not defined for isSolid().");
+				return false;
+		}
+	}
 }
