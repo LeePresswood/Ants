@@ -68,6 +68,18 @@ public class BlockDiagonal extends GridBlock
 	@Override
 	public void nextPosition(Ant ant, float delta)
 	{
+		/* How this works will be dependent on a few things:
+		 * 1. Is this a ground or ceiling?
+		 * 		Ground using the ant's bottom to determine collision. Ceiling uses ant's top.
+		 * 2. Which side?
+		 * 		We'll probably just keep it simple and make the ant go up or down at a constant rate.
+		 * 		We need to check if we go up the ramp or hit it on the broad side.
+		 * 3. Ceiling collision.
+		 * 		Go off in some weird angle?
+		 * 		Fall straight down?
+		 * 		Side note: Anti-gravity could be cool in the future.
+		 */
+		
 		ant.angle = ant.angle.add(0, GameNumbers.GRAVITY * delta);
 		ant.update(delta);
 		ant.newPositions();
