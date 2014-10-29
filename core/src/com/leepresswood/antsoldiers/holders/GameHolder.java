@@ -81,6 +81,7 @@ public class GameHolder extends Holder
 	@Override
 	public void update(float delta)
 	{
+		//This happens while every ant is not yet on the field
 		if(is_spawning)
 			antSpawn(delta);
 		

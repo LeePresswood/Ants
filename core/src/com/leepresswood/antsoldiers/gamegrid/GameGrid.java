@@ -65,8 +65,6 @@ public class GameGrid
 		int x = (int) Math.floor(ant.down.x);
 		int y = (int) Math.floor(ant.down.y);
 		
-		
-		
 		//Move the ant based upon that block's rules.
 		blocks[y][x].nextPosition(ant, delta);
 		
