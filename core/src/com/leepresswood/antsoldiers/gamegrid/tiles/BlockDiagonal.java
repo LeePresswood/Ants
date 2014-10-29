@@ -7,6 +7,7 @@ import com.leepresswood.antsoldiers.management.GameNumbers;
 
 public class BlockDiagonal extends GridBlock
 {
+	private boolean is_ceiling;
 	private Vector2 start, end;
 	
 	public BlockDiagonal(int index, int type, Texture texture)
@@ -26,15 +27,39 @@ public class BlockDiagonal extends GridBlock
 		switch(type)
 		{
 			case GameNumbers.BLOCK_GROUND_SLOPED_RIGHT:
+				is_ceiling = false;
+				
+				start.x = x;
+				start.y = y;				
+				end.x = x + width;
+				end.y = y + height;
 				
 				return;
 			case GameNumbers.BLOCK_GROUND_SLOPED_LEFT:
-							
+				is_ceiling = false;
+				
+				start.x = x;
+				start.y = y + height;				
+				end.x = x + width;
+				end.y = y;
+				
 				return;
 			case GameNumbers.BLOCK_CEILING_SLOPED_RIGHT:
+				is_ceiling = true;
+				
+				start.x = x;
+				start.y = y + height;				
+				end.x = x + width;
+				end.y = y;
 				
 				return;
 			case GameNumbers.BLOCK_CEILING_SLOPED_LEFT:
+				is_ceiling = true;
+				
+				start.x = x;
+				start.y = y;				
+				end.x = x + width;
+				end.y = y + height;
 				
 				return;
 		}
