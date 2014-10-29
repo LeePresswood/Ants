@@ -4,6 +4,7 @@ package com.leepresswood.antsoldiers.gamegrid;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.leepresswood.antsoldiers.ants.Ant;
 import com.leepresswood.antsoldiers.gamegrid.tiles.BlockAir;
+import com.leepresswood.antsoldiers.gamegrid.tiles.BlockDiagonal;
 import com.leepresswood.antsoldiers.gamegrid.tiles.BlockGroundSolid;
 import com.leepresswood.antsoldiers.gamegrid.tiles.GridBlock;
 import com.leepresswood.antsoldiers.management.GameNumbers;
@@ -111,13 +112,10 @@ public class GameGrid
 			case GameNumbers.BLOCK_GROUND_SOLID:
 				return new BlockGroundSolid(counter, type, screen_game.assets.block_textures[type]);
 			case GameNumbers.BLOCK_GROUND_SLOPED_RIGHT:
-				return null;
 			case GameNumbers.BLOCK_GROUND_SLOPED_LEFT:
-				return null;
 			case GameNumbers.BLOCK_CEILING_SLOPED_RIGHT:
-				return null;
 			case GameNumbers.BLOCK_CEILING_SLOPED_LEFT:
-				return null;
+				return new BlockDiagonal(counter, type, screen_game.assets.block_textures[type]);
 			case GameNumbers.BLOCK_SPAWNER:
 				return null;
 			case GameNumbers.BLOCK_GOAL:
