@@ -22,8 +22,11 @@ public class BlockDiagonal extends GridBlock
 	public void setBounds(float x, float y, float width, float height)
 	{
 		super.setBounds(x, y, width, height);
-		
-		//After setting the bounds, we also want to set the diagonal part.
+		setDiagonal(x, y, width, height);		
+	}
+	
+	private void setDiagonal(float x, float y, float width, float height)
+	{//After setting the bounds, we also want to set the diagonal part.
 		switch(type)
 		{
 			case GameNumbers.BLOCK_GROUND_SLOPED_RIGHT:
@@ -62,7 +65,14 @@ public class BlockDiagonal extends GridBlock
 				end.y = y + height;
 				
 				return;
-		}
+		}		
+	}
+	
+	private float getYFromX(float x)
+	{
+		float y = getY();
+		
+		return y;
 	}
 
 	@Override
@@ -80,8 +90,16 @@ public class BlockDiagonal extends GridBlock
 		 * 		Side note: Anti-gravity could be cool in the future.
 		 */
 		
-		ant.angle = ant.angle.add(0, GameNumbers.GRAVITY * delta);
-		ant.update(delta);
-		ant.newPositions();
+		if(is_ceiling)
+		{//Top collision
+			
+		}
+		else
+		{//Bottom collision
+			//Change the vector
+			ant.angle = new Vector2((end.x - start.x) * GameNumbers.ANT_SPEED * ant.direction, (end.y - start.y) * GameNumbers.ANT_SPEED * ant.direction);
+			ant.update(delta);
+			ant.newPositions();
+		}
 	}	
 }

@@ -114,7 +114,7 @@ public class GameGrid
 			{
 				ant.setPosition(blocks[y + 1][x + 1].getX() - ant.getWidth(), ant.getY());
 				ant.angle.x *= -1f;
-				//ant.angle.y = 0f;
+				ant.angle.y = 0f;
 				ant.direction *= -1;
 			}
 		}
@@ -124,7 +124,7 @@ public class GameGrid
 			{
 				ant.setPosition(blocks[y + 1][x - 1].getX() + blocks[y + 1][x - 1].getWidth(), ant.getY());
 				ant.angle.x *= -1f;
-				//ant.angle.y = 0f;
+				ant.angle.y = 0f;
 				ant.direction *= -1;
 			}
 		}
