@@ -13,12 +13,11 @@ public class BlockAir extends GridBlock
 	}
 
 	@Override
-	public void nextPosition(Ant ant, float speed)
+	public void nextPosition(Ant ant, float delta)
 	{
 		//New idea: Use vectors.
-		ant.angle = ant.angle.add(0, GameNumbers.GRAVITY);
-		ant.setPosition((float) (ant.getX() + GameNumbers.ANT_SPEED * Math.cos(ant.angle.angleRad())), (float) (ant.getY() + GameNumbers.ANT_SPEED * Math.sin(ant.angle.angleRad())));
-		
+		ant.angle = ant.angle.add(0, GameNumbers.GRAVITY * delta);
+
 		/* This is an air block.
 		 * Ant's current Y coordinate should fall each update. This will eventually lead to a walkable block.
 		 * X coordinate should not change.

@@ -49,6 +49,9 @@ public class Ant extends Sprite
 		//Animation.
 		
 		
+		translate((float) (delta * angle.len() * Math.cos(angle.angleRad())), (float) (delta * angle.len() * Math.sin(angle.angleRad())));
+
+		
 		//Positioning.
 		newPositions();
 	}

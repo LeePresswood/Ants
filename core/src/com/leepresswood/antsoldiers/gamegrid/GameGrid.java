@@ -66,7 +66,7 @@ public class GameGrid
 		int y = (int) Math.floor(ant.down.y);
 		
 		//Move the ant based upon that block's rules.
-		blocks[y][x].nextPosition(ant, GameNumbers.ANT_SPEED * delta);
+		blocks[y][x].nextPosition(ant, delta);
 		
 		//Turning around happens when left or right of the ant is a wall.
 		checkTurnAround(x, y, ant);

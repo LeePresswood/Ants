@@ -11,12 +11,12 @@ public class BlockGroundSolid extends GridBlock
 	}
 
 	@Override
-	public void nextPosition(Ant ant, float speed)
+	public void nextPosition(Ant ant, float delta)
 	{
 		/* This is a simple block.
 		 * Current position's Y coordinate should be at the very top of this.
 		 * dX will be dependent on the speed component.
 		 */		
-		ant.setPosition(ant.getX() + speed * ant.direction, this.getY() + this.getHeight());//ant.getY());
+		//ant.setPosition(ant.getX() + speed * ant.direction, this.getY() + this.getHeight());//ant.getY());
 	}
 }
